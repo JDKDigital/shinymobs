@@ -2,6 +2,7 @@ package cy.jdkdigital.shiny.client.renderer.entity.layers;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
+import cy.jdkdigital.shiny.ShinyMod;
 import net.minecraft.client.model.HoglinModel;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
@@ -13,7 +14,7 @@ import net.minecraft.world.entity.monster.Zoglin;
 
 public class ZoglinShinyLayer extends RenderLayer<Zoglin, HoglinModel<Zoglin>>
 {
-    private static final RenderType SHINY = RenderType.eyes(new ResourceLocation("textures/entity/hoglin/zoglin.png"));
+    private static final RenderType SHINY = RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/hoglin/zoglin.png"));
 
     public ZoglinShinyLayer(RenderLayerParent<Zoglin, HoglinModel<Zoglin>> renderer) {
         super(renderer);

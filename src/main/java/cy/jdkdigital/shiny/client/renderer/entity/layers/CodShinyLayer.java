@@ -2,6 +2,7 @@ package cy.jdkdigital.shiny.client.renderer.entity.layers;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
+import cy.jdkdigital.shiny.ShinyMod;
 import net.minecraft.client.model.CodModel;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
@@ -13,7 +14,7 @@ import net.minecraft.world.entity.animal.Cod;
 
 public class CodShinyLayer extends RenderLayer<Cod, CodModel<Cod>>
 {
-    private static final RenderType SHINE = RenderType.eyes(new ResourceLocation("textures/entity/fish/cod.png"));
+    private static final RenderType SHINE = RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/fish/cod.png"));
 
     public CodShinyLayer(RenderLayerParent<Cod, CodModel<Cod>> renderer) {
         super(renderer);

@@ -2,6 +2,7 @@ package cy.jdkdigital.shiny.client.renderer.entity.layers;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
+import cy.jdkdigital.shiny.ShinyMod;
 import net.minecraft.client.model.IronGolemModel;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
@@ -13,7 +14,7 @@ import net.minecraft.world.entity.animal.IronGolem;
 
 public class IronGolemShinyLayer extends RenderLayer<IronGolem, IronGolemModel<IronGolem>>
 {
-    private static final RenderType SHINE = RenderType.eyes(new ResourceLocation("textures/entity/iron_golem/iron_golem.png"));
+    private static final RenderType SHINE = RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/iron_golem/iron_golem.png"));
 
     public IronGolemShinyLayer(RenderLayerParent<IronGolem, IronGolemModel<IronGolem>> renderer) {
         super(renderer);

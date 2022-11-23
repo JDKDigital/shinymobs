@@ -2,6 +2,7 @@ package cy.jdkdigital.shiny.client.renderer.entity.layers;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
+import cy.jdkdigital.shiny.ShinyMod;
 import net.minecraft.client.model.IllagerModel;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
@@ -13,7 +14,7 @@ import net.minecraft.world.entity.monster.Pillager;
 
 public class PillagerShinyLayer extends RenderLayer<Pillager, IllagerModel<Pillager>>
 {
-    private static final RenderType SHINE = RenderType.eyes(new ResourceLocation("textures/entity/illager/pillager.png"));
+    private static final RenderType SHINE = RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/illager/pillager.png"));
 
     public PillagerShinyLayer(RenderLayerParent<Pillager, IllagerModel<Pillager>> renderer) {
         super(renderer);

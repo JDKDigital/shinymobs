@@ -2,6 +2,7 @@ package cy.jdkdigital.shiny.client.renderer.entity.layers;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
+import cy.jdkdigital.shiny.ShinyMod;
 import net.minecraft.client.model.GoatModel;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
@@ -13,7 +14,7 @@ import net.minecraft.world.entity.animal.goat.Goat;
 
 public class GoatShinyLayer extends RenderLayer<Goat, GoatModel<Goat>>
 {
-    private static final RenderType SHINY = RenderType.eyes(new ResourceLocation("textures/entity/goat/goat.png"));
+    private static final RenderType SHINY = RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/goat/goat.png"));
 
     public GoatShinyLayer(RenderLayerParent<Goat, GoatModel<Goat>> renderer) {
         super(renderer);

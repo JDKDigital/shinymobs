@@ -2,6 +2,7 @@ package cy.jdkdigital.shiny.client.renderer.entity.layers;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
+import cy.jdkdigital.shiny.ShinyMod;
 import net.minecraft.client.model.WolfModel;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
@@ -13,9 +14,9 @@ import net.minecraft.world.entity.animal.Wolf;
 
 public class WolfShinyLayer extends RenderLayer<Wolf, WolfModel<Wolf>>
 {
-    private static final RenderType SHINE = RenderType.eyes(new ResourceLocation("textures/entity/wolf/wolf.png"));
-    private static final RenderType SHINE_TAME = RenderType.eyes(new ResourceLocation("textures/entity/wolf/wolf_tame.png"));
-    private static final RenderType SHINE_ANGRY = RenderType.eyes(new ResourceLocation("textures/entity/wolf/wolf_angry.png"));
+    private static final RenderType SHINE = RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/wolf/wolf.png"));
+    private static final RenderType SHINE_TAME = RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/wolf/wolf_tame.png"));
+    private static final RenderType SHINE_ANGRY = RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/wolf/wolf_angry.png"));
 
     public WolfShinyLayer(RenderLayerParent<Wolf, WolfModel<Wolf>> renderer) {
         super(renderer);

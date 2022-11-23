@@ -2,6 +2,7 @@ package cy.jdkdigital.shiny.client.renderer.entity.layers;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
+import cy.jdkdigital.shiny.ShinyMod;
 import net.minecraft.client.model.OcelotModel;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
@@ -13,7 +14,7 @@ import net.minecraft.world.entity.animal.Ocelot;
 
 public class OcelotShinyLayer extends RenderLayer<Ocelot, OcelotModel<Ocelot>>
 {
-    private static final RenderType SHINE = RenderType.eyes(new ResourceLocation("textures/entity/cat/ocelot.png"));
+    private static final RenderType SHINE = RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/cat/ocelot.png"));
 
     public OcelotShinyLayer(RenderLayerParent<Ocelot, OcelotModel<Ocelot>> renderer) {
         super(renderer);

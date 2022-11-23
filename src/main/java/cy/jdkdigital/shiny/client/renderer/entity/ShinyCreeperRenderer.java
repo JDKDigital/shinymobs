@@ -10,7 +10,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class ShinyCreeperRenderer extends CreeperRenderer
 {
-    ResourceLocation TEXTURE = new ResourceLocation(ShinyMod.MODID, "textures/entity/creeper/creeper.png");
+    private static final ResourceLocation TEXTURE = new ResourceLocation(ShinyMod.MODID, "textures/entity/creeper/creeper.png");
 
     public ShinyCreeperRenderer(EntityRendererProvider.Context context) {
         super(context);

@@ -121,5 +121,10 @@
     "entity.shiny.shiny_zombie": "Shiny Zombie",
     "entity.shiny.shiny_zombie_horse": "Shiny Zombie Horse",
     "entity.shiny.shiny_zombified_piglin": "Shiny Zombified Piglin",
-    "entity.shiny.shiny_zombie_villager": "Shiny Zombie Villager"
+    "entity.shiny.shiny_zombie_villager": "Shiny Zombie Villager",
+    "item.shiny.shiny_axolotl_bucket": "Bucket of Shiny Axolotl",
+    "item.shiny.shiny_cod_bucket": "Bucket of Shiny Cod",
+    "item.shiny.shiny_salmon_bucket": "Bucket of Shiny Salmon",
+    "item.shiny.shiny_pufferfish_bucket": "Bucket of Shiny Pufferfish",
+    "item.shiny.shiny_tropical_fish_bucket": "Bucket of Shiny Tropical Fish"
 }

@@ -2,6 +2,7 @@ package cy.jdkdigital.shiny.client.renderer.entity.layers;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
+import cy.jdkdigital.shiny.ShinyMod;
 import net.minecraft.client.model.SquidModel;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
@@ -13,7 +14,7 @@ import net.minecraft.world.entity.GlowSquid;
 
 public class GlowSquidShinyLayer extends RenderLayer<GlowSquid, SquidModel<GlowSquid>>
 {
-    private static final RenderType SHINE = RenderType.eyes(new ResourceLocation("textures/entity/squid/glow_squid.png"));
+    private static final RenderType SHINE = RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/squid/glow_squid.png"));
 
     public GlowSquidShinyLayer(RenderLayerParent<GlowSquid, SquidModel<GlowSquid>> renderer) {
         super(renderer);

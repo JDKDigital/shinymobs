@@ -3,6 +3,7 @@ package cy.jdkdigital.shiny.client.renderer.entity.layers;
 import com.google.common.collect.ImmutableMap;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
+import cy.jdkdigital.shiny.ShinyMod;
 import cy.jdkdigital.shiny.init.ModEntities;
 import net.minecraft.client.model.PiglinModel;
 import net.minecraft.client.renderer.MultiBufferSource;
@@ -19,9 +20,9 @@ import java.util.Map;
 public class PiglinShinyLayer extends RenderLayer<Mob, PiglinModel<Mob>>
 {
     private static final Map<EntityType<?>, RenderType> SHINE = ImmutableMap.of(
-        ModEntities.PIGLIN.get(), RenderType.eyes(new ResourceLocation("textures/entity/piglin/piglin.png")),
-        ModEntities.ZOMBIFIED_PIGLIN.get(), RenderType.eyes(new ResourceLocation("textures/entity/piglin/zombified_piglin.png")),
-        ModEntities.PIGLIN_BRUTE.get(), RenderType.eyes(new ResourceLocation("textures/entity/piglin/piglin_brute.png"))
+        ModEntities.PIGLIN.get(), RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/piglin/piglin.png")),
+        ModEntities.ZOMBIFIED_PIGLIN.get(), RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/piglin/zombified_piglin.png")),
+        ModEntities.PIGLIN_BRUTE.get(), RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/piglin/piglin_brute.png"))
     );
 
     public PiglinShinyLayer(RenderLayerParent<Mob, PiglinModel<Mob>> renderer) {

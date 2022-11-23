@@ -1,6 +1,7 @@
 package cy.jdkdigital.shiny.client.renderer.entity;
 
 import com.google.common.collect.Maps;
+import cy.jdkdigital.shiny.ShinyMod;
 import cy.jdkdigital.shiny.client.renderer.entity.layers.HorseShinyLayer;
 import net.minecraft.Util;
 import net.minecraft.client.model.HorseModel;
@@ -17,13 +18,13 @@ import java.util.Map;
 public class ShinyHorseRenderer extends AbstractHorseRenderer<Horse, HorseModel<Horse>>
 {
     private static final Map<Variant, ResourceLocation> MAP = Util.make(Maps.newEnumMap(Variant.class), (map) -> {
-        map.put(Variant.WHITE, new ResourceLocation("textures/entity/horse/horse_white.png"));
-        map.put(Variant.CREAMY, new ResourceLocation("textures/entity/horse/horse_creamy.png"));
-        map.put(Variant.CHESTNUT, new ResourceLocation("textures/entity/horse/horse_chestnut.png"));
-        map.put(Variant.BROWN, new ResourceLocation("textures/entity/horse/horse_brown.png"));
-        map.put(Variant.BLACK, new ResourceLocation("textures/entity/horse/horse_black.png"));
-        map.put(Variant.GRAY, new ResourceLocation("textures/entity/horse/horse_gray.png"));
-        map.put(Variant.DARKBROWN, new ResourceLocation("textures/entity/horse/horse_darkbrown.png"));
+        map.put(Variant.WHITE, new ResourceLocation(ShinyMod.MODID, "textures/entity/horse/horse_white.png"));
+        map.put(Variant.CREAMY, new ResourceLocation(ShinyMod.MODID, "textures/entity/horse/horse_creamy.png"));
+        map.put(Variant.CHESTNUT, new ResourceLocation(ShinyMod.MODID, "textures/entity/horse/horse_chestnut.png"));
+        map.put(Variant.BROWN, new ResourceLocation(ShinyMod.MODID, "textures/entity/horse/horse_brown.png"));
+        map.put(Variant.BLACK, new ResourceLocation(ShinyMod.MODID, "textures/entity/horse/horse_black.png"));
+        map.put(Variant.GRAY, new ResourceLocation(ShinyMod.MODID, "textures/entity/horse/horse_gray.png"));
+        map.put(Variant.DARKBROWN, new ResourceLocation(ShinyMod.MODID, "textures/entity/horse/horse_darkbrown.png"));
     });
 
     public ShinyHorseRenderer(EntityRendererProvider.Context context) {

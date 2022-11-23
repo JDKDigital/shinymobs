@@ -2,6 +2,7 @@ package cy.jdkdigital.shiny.client.renderer.entity.layers;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
+import cy.jdkdigital.shiny.ShinyMod;
 import net.minecraft.client.model.VexModel;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
@@ -13,8 +14,8 @@ import net.minecraft.world.entity.monster.Vex;
 
 public class VexShinyLayer extends RenderLayer<Vex, VexModel>
 {
-    private static final RenderType SHINE = RenderType.eyes(new ResourceLocation("textures/entity/illager/vex.png"));
-    private static final RenderType SHINE_CHARGING = RenderType.eyes(new ResourceLocation("textures/entity/illager/vex_charging.png"));
+    private static final RenderType SHINE = RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/illager/vex.png"));
+    private static final RenderType SHINE_CHARGING = RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/illager/vex_charging.png"));
 
     public VexShinyLayer(RenderLayerParent<Vex, VexModel> renderer) {
         super(renderer);

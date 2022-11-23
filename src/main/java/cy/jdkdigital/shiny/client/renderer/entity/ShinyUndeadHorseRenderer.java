@@ -1,6 +1,7 @@
 package cy.jdkdigital.shiny.client.renderer.entity;
 
 import com.google.common.collect.ImmutableMap;
+import cy.jdkdigital.shiny.ShinyMod;
 import cy.jdkdigital.shiny.client.renderer.entity.layers.UndeadHorseShinyLayer;
 import cy.jdkdigital.shiny.init.ModEntities;
 import net.minecraft.client.model.geom.ModelLayerLocation;
@@ -16,8 +17,8 @@ import java.util.Map;
 public class ShinyUndeadHorseRenderer extends UndeadHorseRenderer
 {
     private static final Map<EntityType<?>, ResourceLocation> MAP = ImmutableMap.of(
-        ModEntities.ZOMBIE_HORSE.get(), new ResourceLocation("textures/entity/horse/horse_zombie.png"),
-        ModEntities.SKELETON_HORSE.get(), new ResourceLocation("textures/entity/horse/horse_skeleton.png")
+        ModEntities.ZOMBIE_HORSE.get(), new ResourceLocation(ShinyMod.MODID, "textures/entity/horse/horse_zombie.png"),
+        ModEntities.SKELETON_HORSE.get(), new ResourceLocation(ShinyMod.MODID, "textures/entity/horse/horse_skeleton.png")
     );
 
     public ShinyUndeadHorseRenderer(EntityRendererProvider.Context context, ModelLayerLocation model) {

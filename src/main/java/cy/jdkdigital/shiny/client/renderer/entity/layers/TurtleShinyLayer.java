@@ -2,6 +2,7 @@ package cy.jdkdigital.shiny.client.renderer.entity.layers;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
+import cy.jdkdigital.shiny.ShinyMod;
 import net.minecraft.client.model.TurtleModel;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
@@ -13,7 +14,7 @@ import net.minecraft.world.entity.animal.Turtle;
 
 public class TurtleShinyLayer extends RenderLayer<Turtle, TurtleModel<Turtle>>
 {
-    private static final RenderType SHINE = RenderType.eyes(new ResourceLocation("textures/entity/turtle/big_sea_turtle.png"));
+    private static final RenderType SHINE = RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/turtle/big_sea_turtle.png"));
 
     public TurtleShinyLayer(RenderLayerParent<Turtle, TurtleModel<Turtle>> renderer) {
         super(renderer);

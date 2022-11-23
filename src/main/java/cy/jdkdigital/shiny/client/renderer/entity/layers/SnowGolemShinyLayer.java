@@ -2,6 +2,7 @@ package cy.jdkdigital.shiny.client.renderer.entity.layers;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
+import cy.jdkdigital.shiny.ShinyMod;
 import net.minecraft.client.model.SnowGolemModel;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
@@ -13,7 +14,7 @@ import net.minecraft.world.entity.animal.SnowGolem;
 
 public class SnowGolemShinyLayer extends RenderLayer<SnowGolem, SnowGolemModel<SnowGolem>>
 {
-    private static final RenderType SHINE = RenderType.eyes(new ResourceLocation("textures/entity/snow_golem.png"));
+    private static final RenderType SHINE = RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/snow_golem.png"));
 
     public SnowGolemShinyLayer(RenderLayerParent<SnowGolem, SnowGolemModel<SnowGolem>> renderer) {
         super(renderer);

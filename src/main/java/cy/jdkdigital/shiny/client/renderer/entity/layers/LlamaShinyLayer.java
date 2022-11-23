@@ -2,6 +2,7 @@ package cy.jdkdigital.shiny.client.renderer.entity.layers;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
+import cy.jdkdigital.shiny.ShinyMod;
 import net.minecraft.client.model.LlamaModel;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
@@ -14,10 +15,10 @@ import net.minecraft.world.entity.animal.horse.Llama;
 public class LlamaShinyLayer extends RenderLayer<Llama, LlamaModel<Llama>>
 {
     private static final RenderType[] SHINE = new RenderType[]{
-        RenderType.eyes(new ResourceLocation("textures/entity/llama/creamy.png")),
-        RenderType.eyes(new ResourceLocation("textures/entity/llama/white.png")),
-        RenderType.eyes(new ResourceLocation("textures/entity/llama/brown.png")),
-        RenderType.eyes(new ResourceLocation("textures/entity/llama/gray.png"))
+        RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/llama/creamy.png")),
+        RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/llama/white.png")),
+        RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/llama/brown.png")),
+        RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/llama/gray.png"))
     };
 
     public LlamaShinyLayer(RenderLayerParent<Llama, LlamaModel<Llama>> renderer) {

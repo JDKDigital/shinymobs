@@ -3,6 +3,7 @@ package cy.jdkdigital.shiny.client.renderer.entity.layers;
 import com.google.common.collect.Maps;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
+import cy.jdkdigital.shiny.ShinyMod;
 import net.minecraft.Util;
 import net.minecraft.client.model.CowModel;
 import net.minecraft.client.renderer.MultiBufferSource;
@@ -18,8 +19,8 @@ import java.util.Map;
 public class MushroomCowShinyLayer extends RenderLayer<MushroomCow, CowModel<MushroomCow>>
 {
     private static final Map<MushroomCow.MushroomType, RenderType> SHINE = Util.make(Maps.newHashMap(), (map) -> {
-        map.put(MushroomCow.MushroomType.BROWN, RenderType.eyes(new ResourceLocation("textures/entity/cow/brown_mooshroom.png")));
-        map.put(MushroomCow.MushroomType.RED, RenderType.eyes(new ResourceLocation("textures/entity/cow/red_mooshroom.png")));
+        map.put(MushroomCow.MushroomType.BROWN, RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/cow/brown_mooshroom.png")));
+        map.put(MushroomCow.MushroomType.RED, RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/cow/red_mooshroom.png")));
     });
 
     public MushroomCowShinyLayer(RenderLayerParent<MushroomCow, CowModel<MushroomCow>> renderer) {

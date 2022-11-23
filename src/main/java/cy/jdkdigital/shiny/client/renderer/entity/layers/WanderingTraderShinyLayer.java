@@ -2,6 +2,7 @@ package cy.jdkdigital.shiny.client.renderer.entity.layers;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
+import cy.jdkdigital.shiny.ShinyMod;
 import net.minecraft.client.model.VillagerModel;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
@@ -13,7 +14,7 @@ import net.minecraft.world.entity.npc.WanderingTrader;
 
 public class WanderingTraderShinyLayer extends RenderLayer<WanderingTrader, VillagerModel<WanderingTrader>>
 {
-    private static final RenderType SHINE = RenderType.eyes(new ResourceLocation("textures/entity/wandering_trader.png"));
+    private static final RenderType SHINE = RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/wandering_trader.png"));
 
     public WanderingTraderShinyLayer(RenderLayerParent<WanderingTrader, VillagerModel<WanderingTrader>> renderer) {
         super(renderer);

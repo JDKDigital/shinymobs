@@ -2,6 +2,7 @@ package cy.jdkdigital.shiny.client.renderer.entity.layers;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
+import cy.jdkdigital.shiny.ShinyMod;
 import net.minecraft.client.model.DolphinModel;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
@@ -13,7 +14,7 @@ import net.minecraft.world.entity.animal.Dolphin;
 
 public class DolphinShinyLayer extends RenderLayer<Dolphin, DolphinModel<Dolphin>>
 {
-    private static final RenderType SHINE = RenderType.eyes(new ResourceLocation("textures/entity/dolphin.png"));
+    private static final RenderType SHINE = RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/dolphin.png"));
 
     public DolphinShinyLayer(RenderLayerParent<Dolphin, DolphinModel<Dolphin>> renderer) {
         super(renderer);

@@ -2,6 +2,7 @@ package cy.jdkdigital.shiny;
 
 import cy.jdkdigital.shiny.init.ModEntities;
 import cy.jdkdigital.shiny.init.ModItemGroups;
+import cy.jdkdigital.shiny.init.ModItems;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.TickTask;
@@ -46,6 +47,7 @@ public class ShinyMod
 
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         ModEntities.ENTITIES.register(modEventBus);
+        ModItems.ITEMS.register(modEventBus);
 
         ModItemGroups.init();
 

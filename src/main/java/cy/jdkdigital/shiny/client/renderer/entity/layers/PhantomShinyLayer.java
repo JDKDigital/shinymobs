@@ -2,6 +2,7 @@ package cy.jdkdigital.shiny.client.renderer.entity.layers;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
+import cy.jdkdigital.shiny.ShinyMod;
 import net.minecraft.client.model.PhantomModel;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
@@ -13,7 +14,7 @@ import net.minecraft.world.entity.monster.Phantom;
 
 public class PhantomShinyLayer extends RenderLayer<Phantom, PhantomModel<Phantom>>
 {
-    private static final RenderType SHINY = RenderType.eyes(new ResourceLocation("textures/entity/phantom.png"));
+    private static final RenderType SHINY = RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/phantom.png"));
 
     public PhantomShinyLayer(RenderLayerParent<Phantom, PhantomModel<Phantom>> renderer) {
         super(renderer);

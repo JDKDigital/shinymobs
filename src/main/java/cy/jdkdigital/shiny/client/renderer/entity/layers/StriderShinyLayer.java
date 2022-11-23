@@ -2,6 +2,7 @@ package cy.jdkdigital.shiny.client.renderer.entity.layers;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
+import cy.jdkdigital.shiny.ShinyMod;
 import net.minecraft.client.model.StriderModel;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
@@ -13,8 +14,8 @@ import net.minecraft.world.entity.monster.Strider;
 
 public class StriderShinyLayer extends RenderLayer<Strider, StriderModel<Strider>>
 {
-    private static final RenderType SHINE = RenderType.eyes(new ResourceLocation("textures/entity/strider/strider.png"));
-    private static final RenderType SHINE_COLD = RenderType.eyes(new ResourceLocation("textures/entity/strider/strider_cold.png"));
+    private static final RenderType SHINE = RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/strider/strider.png"));
+    private static final RenderType SHINE_COLD = RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/strider/strider_cold.png"));
 
     public StriderShinyLayer(RenderLayerParent<Strider, StriderModel<Strider>> renderer) {
         super(renderer);

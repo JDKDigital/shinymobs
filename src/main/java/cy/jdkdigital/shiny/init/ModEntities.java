@@ -1,13 +1,13 @@
 package cy.jdkdigital.shiny.init;
 
 import cy.jdkdigital.shiny.ShinyMod;
+import cy.jdkdigital.shiny.common.entity.*;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.GlowSquid;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.entity.ambient.Bat;
 import net.minecraft.world.entity.animal.*;
-import net.minecraft.world.entity.animal.axolotl.Axolotl;
 import net.minecraft.world.entity.animal.goat.Goat;
 import net.minecraft.world.entity.animal.horse.*;
 import net.minecraft.world.entity.boss.wither.WitherBoss;
@@ -31,14 +31,14 @@ public class ModEntities
     public static final DeferredRegister<EntityType<?>> ENTITIES = DeferredRegister.create(ForgeRegistries.ENTITIES, ShinyMod.MODID);
 
     public static final RegistryObject<EntityType<ArmorStand>> ARMOR_STAND = register("shiny_armor_stand", EntityType.Builder.<ArmorStand>of(ArmorStand::new, MobCategory.MISC).sized(0.5F, 1.975F).clientTrackingRange(10));
-    public static final RegistryObject<EntityType<Axolotl>> AXOLOTL = register("shiny_axolotl", EntityType.Builder.of(Axolotl::new, MobCategory.AXOLOTLS).sized(0.75F, 0.42F).clientTrackingRange(10));
+    public static final RegistryObject<EntityType<ShinyAxolotl>> AXOLOTL = register("shiny_axolotl", EntityType.Builder.of(ShinyAxolotl::new, MobCategory.AXOLOTLS).sized(0.75F, 0.42F).clientTrackingRange(10));
     public static final RegistryObject<EntityType<Bat>> BAT = register("shiny_bat", EntityType.Builder.of(Bat::new, MobCategory.AMBIENT).sized(0.5F, 0.9F).clientTrackingRange(5));
     public static final RegistryObject<EntityType<Bee>> BEE = register("shiny_bee", EntityType.Builder.of(Bee::new, MobCategory.CREATURE).sized(0.7F, 0.6F).clientTrackingRange(8));
     public static final RegistryObject<EntityType<Blaze>> BLAZE = register("shiny_blaze", EntityType.Builder.of(Blaze::new, MobCategory.MONSTER).fireImmune().sized(0.6F, 1.8F).clientTrackingRange(8));
     public static final RegistryObject<EntityType<Cat>> CAT = register("shiny_cat", EntityType.Builder.of(Cat::new, MobCategory.CREATURE).sized(0.6F, 0.7F).clientTrackingRange(8));
     public static final RegistryObject<EntityType<CaveSpider>> CAVE_SPIDER = register("shiny_cave_spider", EntityType.Builder.of(CaveSpider::new, MobCategory.MONSTER).sized(0.7F, 0.5F).clientTrackingRange(8));
     public static final RegistryObject<EntityType<Chicken>> CHICKEN = register("shiny_chicken", EntityType.Builder.of(Chicken::new, MobCategory.CREATURE).sized(0.4F, 0.7F).clientTrackingRange(10));
-    public static final RegistryObject<EntityType<Cod>> COD = register("shiny_cod", EntityType.Builder.of(Cod::new, MobCategory.WATER_AMBIENT).sized(0.5F, 0.3F).clientTrackingRange(4));
+    public static final RegistryObject<EntityType<ShinyCod>> COD = register("shiny_cod", EntityType.Builder.of(ShinyCod::new, MobCategory.WATER_AMBIENT).sized(0.5F, 0.3F).clientTrackingRange(4));
     public static final RegistryObject<EntityType<Cow>> COW = register("shiny_cow", EntityType.Builder.of(Cow::new, MobCategory.CREATURE).sized(0.9F, 1.4F).clientTrackingRange(10));
     public static final RegistryObject<EntityType<Creeper>> CREEPER = register("shiny_creeper", EntityType.Builder.of(Creeper::new, MobCategory.MONSTER).sized(0.6F, 1.7F).clientTrackingRange(8));
     public static final RegistryObject<EntityType<Dolphin>> DOLPHIN = register("shiny_dolphin", EntityType.Builder.of(Dolphin::new, MobCategory.WATER_CREATURE).sized(0.9F, 0.6F));
@@ -71,10 +71,10 @@ public class ModEntities
     public static final RegistryObject<EntityType<PiglinBrute>> PIGLIN_BRUTE = register("shiny_piglin_brute", EntityType.Builder.of(PiglinBrute::new, MobCategory.MONSTER).sized(0.6F, 1.95F).clientTrackingRange(8));
     public static final RegistryObject<EntityType<Pillager>> PILLAGER = register("shiny_pillager", EntityType.Builder.of(Pillager::new, MobCategory.MONSTER).canSpawnFarFromPlayer().sized(0.6F, 1.95F).clientTrackingRange(8));
     public static final RegistryObject<EntityType<PolarBear>> POLAR_BEAR = register("shiny_polar_bear", EntityType.Builder.of(PolarBear::new, MobCategory.CREATURE).immuneTo(Blocks.POWDER_SNOW).sized(1.4F, 1.4F).clientTrackingRange(10));
-    public static final RegistryObject<EntityType<Pufferfish>> PUFFERFISH = register("shiny_pufferfish", EntityType.Builder.of(Pufferfish::new, MobCategory.WATER_AMBIENT).sized(0.7F, 0.7F).clientTrackingRange(4));
+    public static final RegistryObject<EntityType<ShinyPufferfish>> PUFFERFISH = register("shiny_pufferfish", EntityType.Builder.of(ShinyPufferfish::new, MobCategory.WATER_AMBIENT).sized(0.7F, 0.7F).clientTrackingRange(4));
     public static final RegistryObject<EntityType<Rabbit>> RABBIT = register("shiny_rabbit", EntityType.Builder.of(Rabbit::new, MobCategory.CREATURE).sized(0.4F, 0.5F).clientTrackingRange(8));
     public static final RegistryObject<EntityType<Ravager>> RAVAGER = register("shiny_ravager", EntityType.Builder.of(Ravager::new, MobCategory.MONSTER).sized(1.95F, 2.2F).clientTrackingRange(10));
-    public static final RegistryObject<EntityType<Salmon>> SALMON = register("shiny_salmon", EntityType.Builder.of(Salmon::new, MobCategory.WATER_AMBIENT).sized(0.7F, 0.4F).clientTrackingRange(4));
+    public static final RegistryObject<EntityType<ShinySalmon>> SALMON = register("shiny_salmon", EntityType.Builder.of(ShinySalmon::new, MobCategory.WATER_AMBIENT).sized(0.7F, 0.4F).clientTrackingRange(4));
     public static final RegistryObject<EntityType<Sheep>> SHEEP = register("shiny_sheep", EntityType.Builder.of(Sheep::new, MobCategory.CREATURE).sized(0.9F, 1.3F).clientTrackingRange(10));
     public static final RegistryObject<EntityType<Shulker>> SHULKER = register("shiny_shulker", EntityType.Builder.of(Shulker::new, MobCategory.MONSTER).fireImmune().canSpawnFarFromPlayer().sized(1.0F, 1.0F).clientTrackingRange(10));
     public static final RegistryObject<EntityType<Silverfish>> SILVERFISH = register("shiny_silverfish", EntityType.Builder.of(Silverfish::new, MobCategory.MONSTER).sized(0.4F, 0.3F).clientTrackingRange(8));
@@ -87,7 +87,7 @@ public class ModEntities
     public static final RegistryObject<EntityType<Stray>> STRAY = register("shiny_stray", EntityType.Builder.of(Stray::new, MobCategory.MONSTER).sized(0.6F, 1.99F).immuneTo(Blocks.POWDER_SNOW).clientTrackingRange(8));
     public static final RegistryObject<EntityType<Strider>> STRIDER = register("shiny_strider", EntityType.Builder.of(Strider::new, MobCategory.CREATURE).fireImmune().sized(0.9F, 1.7F).clientTrackingRange(10));
     public static final RegistryObject<EntityType<TraderLlama>> TRADER_LLAMA = register("shiny_trader_llama", EntityType.Builder.of(TraderLlama::new, MobCategory.CREATURE).sized(0.9F, 1.87F).clientTrackingRange(10));
-    public static final RegistryObject<EntityType<TropicalFish>> TROPICAL_FISH = register("shiny_tropical_fish", EntityType.Builder.of(TropicalFish::new, MobCategory.WATER_AMBIENT).sized(0.5F, 0.4F).clientTrackingRange(4));
+    public static final RegistryObject<EntityType<ShinyTropicalFish>> TROPICAL_FISH = register("shiny_tropical_fish", EntityType.Builder.of(ShinyTropicalFish::new, MobCategory.WATER_AMBIENT).sized(0.5F, 0.4F).clientTrackingRange(4));
     public static final RegistryObject<EntityType<Turtle>> TURTLE = register("shiny_turtle", EntityType.Builder.of(Turtle::new, MobCategory.CREATURE).sized(1.2F, 0.4F).clientTrackingRange(10));
     public static final RegistryObject<EntityType<Vex>> VEX = register("shiny_vex", EntityType.Builder.of(Vex::new, MobCategory.MONSTER).fireImmune().sized(0.4F, 0.8F).clientTrackingRange(8));
     public static final RegistryObject<EntityType<Villager>> VILLAGER = register("shiny_villager", EntityType.Builder.<Villager>of(Villager::new, MobCategory.MISC).sized(0.6F, 1.95F).clientTrackingRange(10));
@@ -100,7 +100,7 @@ public class ModEntities
     public static final RegistryObject<EntityType<Zoglin>> ZOGLIN = register("shiny_zoglin", EntityType.Builder.of(Zoglin::new, MobCategory.MONSTER).fireImmune().sized(1.3964844F, 1.4F).clientTrackingRange(8));
     public static final RegistryObject<EntityType<Zombie>> ZOMBIE = register("shiny_zombie", EntityType.Builder.<Zombie>of(Zombie::new, MobCategory.MONSTER).sized(0.6F, 1.95F).clientTrackingRange(8));
     public static final RegistryObject<EntityType<ZombieHorse>> ZOMBIE_HORSE = register("shiny_zombie_horse", EntityType.Builder.of(ZombieHorse::new, MobCategory.CREATURE).sized(1.3964844F, 1.6F).clientTrackingRange(10));
-    public static final RegistryObject<EntityType<ZombieVillager>> ZOMBIE_VILLAGER = register("shiny_zombie_villager", EntityType.Builder.of(ZombieVillager::new, MobCategory.MONSTER).sized(0.6F, 1.95F).clientTrackingRange(8));
+    public static final RegistryObject<EntityType<ShinyZombieVillager>> ZOMBIE_VILLAGER = register("shiny_zombie_villager", EntityType.Builder.of(ShinyZombieVillager::new, MobCategory.MONSTER).sized(0.6F, 1.95F).clientTrackingRange(8));
     public static final RegistryObject<EntityType<ZombifiedPiglin>> ZOMBIFIED_PIGLIN = register("shiny_zombified_piglin", EntityType.Builder.of(ZombifiedPiglin::new, MobCategory.MONSTER).fireImmune().sized(0.6F, 1.95F).clientTrackingRange(8));
 
     public static <E extends Entity> RegistryObject<EntityType<E>> register(String name, EntityType.Builder<E> builder) {

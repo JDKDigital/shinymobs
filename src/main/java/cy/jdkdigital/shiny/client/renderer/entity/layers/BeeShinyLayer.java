@@ -2,6 +2,7 @@ package cy.jdkdigital.shiny.client.renderer.entity.layers;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
+import cy.jdkdigital.shiny.ShinyMod;
 import net.minecraft.client.model.BeeModel;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
@@ -13,8 +14,8 @@ import net.minecraft.world.entity.animal.Bee;
 
 public class BeeShinyLayer extends RenderLayer<Bee, BeeModel<Bee>>
 {
-    private static final RenderType SHINE = RenderType.eyes(new ResourceLocation("textures/entity/bee/bee.png"));
-    private static final RenderType SHINE_ANGRY = RenderType.eyes(new ResourceLocation("textures/entity/bee/bee.png"));
+    private static final RenderType SHINE = RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/bee/bee.png"));
+    private static final RenderType SHINE_ANGRY = RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/bee/bee.png"));
 
     public BeeShinyLayer(RenderLayerParent<Bee, BeeModel<Bee>> renderer) {
         super(renderer);

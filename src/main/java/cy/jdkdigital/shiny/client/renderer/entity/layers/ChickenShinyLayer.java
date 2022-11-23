@@ -2,6 +2,7 @@ package cy.jdkdigital.shiny.client.renderer.entity.layers;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
+import cy.jdkdigital.shiny.ShinyMod;
 import net.minecraft.client.model.ChickenModel;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
@@ -13,7 +14,7 @@ import net.minecraft.world.entity.animal.Chicken;
 
 public class ChickenShinyLayer extends RenderLayer<Chicken, ChickenModel<Chicken>>
 {
-    private static final RenderType SHINE = RenderType.eyes(new ResourceLocation("textures/entity/chicken.png"));
+    private static final RenderType SHINE = RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/chicken.png"));
 
     public ChickenShinyLayer(RenderLayerParent<Chicken, ChickenModel<Chicken>> renderer) {
         super(renderer);

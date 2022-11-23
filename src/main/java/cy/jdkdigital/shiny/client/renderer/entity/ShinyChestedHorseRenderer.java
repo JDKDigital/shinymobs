@@ -1,6 +1,7 @@
 package cy.jdkdigital.shiny.client.renderer.entity;
 
 import com.google.common.collect.ImmutableMap;
+import cy.jdkdigital.shiny.ShinyMod;
 import cy.jdkdigital.shiny.client.renderer.entity.layers.ChestedHorseShinyLayer;
 import cy.jdkdigital.shiny.init.ModEntities;
 import net.minecraft.client.model.ChestedHorseModel;
@@ -17,8 +18,8 @@ import java.util.Map;
 public class ShinyChestedHorseRenderer<T extends AbstractChestedHorse> extends AbstractHorseRenderer<T, ChestedHorseModel<T>>
 {
     private static final Map<EntityType<?>, ResourceLocation> MAP = ImmutableMap.of(
-        ModEntities.DONKEY.get(), new ResourceLocation("textures/entity/horse/donkey.png"),
-        ModEntities.MULE.get(), new ResourceLocation("textures/entity/horse/mule.png")
+        ModEntities.DONKEY.get(), new ResourceLocation(ShinyMod.MODID, "textures/entity/horse/donkey.png"),
+        ModEntities.MULE.get(), new ResourceLocation(ShinyMod.MODID, "textures/entity/horse/mule.png")
     );
 
     public ShinyChestedHorseRenderer(EntityRendererProvider.Context context, float size, ModelLayerLocation model) {

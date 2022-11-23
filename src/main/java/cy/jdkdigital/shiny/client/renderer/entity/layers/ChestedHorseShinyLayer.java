@@ -3,6 +3,7 @@ package cy.jdkdigital.shiny.client.renderer.entity.layers;
 import com.google.common.collect.ImmutableMap;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
+import cy.jdkdigital.shiny.ShinyMod;
 import cy.jdkdigital.shiny.init.ModEntities;
 import net.minecraft.client.model.ChestedHorseModel;
 import net.minecraft.client.renderer.MultiBufferSource;
@@ -19,8 +20,8 @@ import java.util.Map;
 public class ChestedHorseShinyLayer<T extends AbstractChestedHorse> extends RenderLayer<T, ChestedHorseModel<T>>
 {
     private static final Map<EntityType<?>, RenderType> SHINE = ImmutableMap.of(
-        ModEntities.DONKEY.get(), RenderType.eyes(new ResourceLocation("textures/entity/horse/donkey.png")),
-        ModEntities.MULE.get(), RenderType.eyes(new ResourceLocation("textures/entity/horse/mule.png"))
+        ModEntities.DONKEY.get(), RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/horse/donkey.png")),
+        ModEntities.MULE.get(), RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/horse/mule.png"))
     );
 
     public ChestedHorseShinyLayer(RenderLayerParent<T, ChestedHorseModel<T>> renderer) {

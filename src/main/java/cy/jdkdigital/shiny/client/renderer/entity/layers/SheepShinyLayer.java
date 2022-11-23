@@ -2,6 +2,7 @@ package cy.jdkdigital.shiny.client.renderer.entity.layers;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
+import cy.jdkdigital.shiny.ShinyMod;
 import net.minecraft.client.model.SheepModel;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
@@ -13,7 +14,7 @@ import net.minecraft.world.entity.animal.Sheep;
 
 public class SheepShinyLayer extends RenderLayer<Sheep, SheepModel<Sheep>>
 {
-    private static final RenderType SHINE = RenderType.eyes(new ResourceLocation("textures/entity/sheep/sheep.png"));
+    private static final RenderType SHINE = RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/sheep/sheep.png"));
 
     public SheepShinyLayer(RenderLayerParent<Sheep, SheepModel<Sheep>> renderer) {
         super(renderer);

@@ -1,3 +1,16 @@
+1.18.2-0.1.1.0
+
+-- Bucketable shinies will now place the correct shiny after being picked up
+-- Shiny zombie villagers turn into shiny villagers, as they should
+-- Added support for changing textures for all shinies
+-- Shiny bees can leave hives
+
+
+1.18.2-0.1.0.1
+
+-- Added support for Lucent to make shiny entities give off light
+
+
 1.18.2-0.1.0.0
 
 -- Initial release

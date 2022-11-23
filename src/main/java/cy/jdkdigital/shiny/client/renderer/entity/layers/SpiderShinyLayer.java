@@ -2,6 +2,7 @@ package cy.jdkdigital.shiny.client.renderer.entity.layers;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
+import cy.jdkdigital.shiny.ShinyMod;
 import net.minecraft.client.model.SpiderModel;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
@@ -13,7 +14,7 @@ import net.minecraft.world.entity.monster.Spider;
 
 public class SpiderShinyLayer<T extends Spider> extends RenderLayer<T, SpiderModel<T>>
 {
-    private static final RenderType SHINE = RenderType.eyes(new ResourceLocation("textures/entity/spider/spider.png"));
+    private static final RenderType SHINE = RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/spider/spider.png"));
 
     public SpiderShinyLayer(RenderLayerParent<T, SpiderModel<T>> renderer) {
         super(renderer);

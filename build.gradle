@@ -142,6 +142,7 @@ dependencies {
     implementation fg.deobf("curse.maven:productivebees-377897:3995833")
     implementation fg.deobf("curse.maven:jonns-trophies-510170:3914524")
     implementation fg.deobf("curse.maven:everythingcopper-579545:3908966")
+    implementation fg.deobf("curse.maven:lucent-493280:3776959")
 }
 
 // Example for how to get properties into the manifest for reading at runtime.
