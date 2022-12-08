@@ -125,5 +125,10 @@
     "entity.shiny.shiny_warden": "Shiny Warden",
     "entity.shiny.shiny_tadpole": "Shiny Tadpole",
     "entity.shiny.shiny_frog": "Shiny Frog",
-    "entity.shiny.shiny_allay": "Shiny Allay"
+    "entity.shiny.shiny_allay": "Shiny Allay",
+    "item.shiny.shiny_axolotl_bucket": "Bucket of Shiny Axolotl",
+    "item.shiny.shiny_cod_bucket": "Bucket of Shiny Cod",
+    "item.shiny.shiny_salmon_bucket": "Bucket of Shiny Salmon",
+    "item.shiny.shiny_pufferfish_bucket": "Bucket of Shiny Pufferfish",
+    "item.shiny.shiny_tropical_fish_bucket": "Bucket of Shiny Tropical Fish"
 }

@@ -1,8 +1,11 @@
 package cy.jdkdigital.shiny;
 
+import cy.jdkdigital.shiny.common.entity.ShinyVillager;
 import cy.jdkdigital.shiny.init.ModEntities;
 import cy.jdkdigital.shiny.init.ModItemGroups;
+import cy.jdkdigital.shiny.init.ModItems;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.NbtOps;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.TickTask;
 import net.minecraft.server.level.ServerLevel;
@@ -27,6 +30,7 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.util.LogicalSidedProvider;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.event.entity.EntityJoinLevelEvent;
+import net.minecraftforge.event.entity.living.LivingConversionEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.LogicalSide;
@@ -50,6 +54,7 @@ public class ShinyMod
 
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         ModEntities.ENTITIES.register(modEventBus);
+        ModItems.ITEMS.register(modEventBus);
 
         ModItemGroups.init();
 
@@ -74,6 +79,23 @@ public class ShinyMod
                     }));
                 }
             }
+        }
+    }
+
+    @SubscribeEvent
+    public void onEntityConvert(LivingConversionEvent.Post event) {
+        if (event.getEntity() instanceof ShinyVillager villager && event.getEntity().level instanceof ServerLevel level) {
+            var executor = LogicalSidedProvider.WORKQUEUE.get(level.isClientSide ? LogicalSide.CLIENT : LogicalSide.SERVER);
+                executor.tell(new TickTask(0, () -> {
+                event.getOutcome().discard();
+
+                ZombieVillager zombievillager = villager.convertTo(ModEntities.ZOMBIE_VILLAGER.get(), false);
+                zombievillager.finalizeSpawn(level, level.getCurrentDifficultyAt(zombievillager.blockPosition()), MobSpawnType.CONVERSION, new Zombie.ZombieGroupData(false, true), (CompoundTag)null);
+                zombievillager.setVillagerData(villager.getVillagerData());
+                zombievillager.setGossips(villager.getGossips().store(NbtOps.INSTANCE).getValue());
+                zombievillager.setTradeOffers(villager.getOffers().createTag());
+                zombievillager.setVillagerXp(villager.getVillagerXp());
+            }));
         }
     }
 

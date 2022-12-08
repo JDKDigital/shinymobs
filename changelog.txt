@@ -1,3 +1,18 @@
+1.19.2-0.1.1.1
+
+-- Fixed some texture artifacts
+-- Fixed transformations for villagers, zombie villager, zombies, drowned, husks and skeletons to be transformed into their shiny counterpart
+-- Shiny layer will be hidden when entity is invisible
+
+
+1.19.2-0.1.1.0
+
+-- Bucketable shinies will now place the correct shiny after being picked up
+-- Shiny zombie villagers turn into shiny villagers, as they should
+-- Added support for changing textures for all shinies
+-- Shiny bees can leave hives
+
+
 1.19.2-0.1.0.0
 
 -- 1.19.2 port

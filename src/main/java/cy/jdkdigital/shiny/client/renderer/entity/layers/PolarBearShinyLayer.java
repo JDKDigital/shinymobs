@@ -2,6 +2,7 @@ package cy.jdkdigital.shiny.client.renderer.entity.layers;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
+import cy.jdkdigital.shiny.ShinyMod;
 import net.minecraft.client.model.PolarBearModel;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
@@ -13,7 +14,7 @@ import net.minecraft.world.entity.animal.PolarBear;
 
 public class PolarBearShinyLayer extends RenderLayer<PolarBear, PolarBearModel<PolarBear>>
 {
-    private static final RenderType SHINE = RenderType.eyes(new ResourceLocation("textures/entity/bear/polarbear.png"));
+    private static final RenderType SHINE = RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/bear/polarbear.png"));
 
     public PolarBearShinyLayer(RenderLayerParent<PolarBear, PolarBearModel<PolarBear>> renderer) {
         super(renderer);
@@ -21,7 +22,9 @@ public class PolarBearShinyLayer extends RenderLayer<PolarBear, PolarBearModel<P
 
     @Override
     public void render(PoseStack poseStack, MultiBufferSource bufferSource, int packedLightIn, PolarBear entity, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
-        VertexConsumer vertexconsumer = bufferSource.getBuffer(SHINE);
-        this.getParentModel().renderToBuffer(poseStack, vertexconsumer, 15728640, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
+        if (!entity.isInvisible()) {
+            VertexConsumer vertexconsumer = bufferSource.getBuffer(SHINE);
+            this.getParentModel().renderToBuffer(poseStack, vertexconsumer, 15728640, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
+        }
     }
 }

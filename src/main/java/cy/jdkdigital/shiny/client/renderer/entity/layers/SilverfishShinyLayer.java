@@ -22,7 +22,9 @@ public class SilverfishShinyLayer extends RenderLayer<Silverfish, SilverfishMode
 
     @Override
     public void render(PoseStack poseStack, MultiBufferSource bufferSource, int packedLightIn, Silverfish entity, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
-        VertexConsumer vertexconsumer = bufferSource.getBuffer(SHINE);
-        this.getParentModel().renderToBuffer(poseStack, vertexconsumer, 15728640, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
+        if (!entity.isInvisible()) {
+            VertexConsumer vertexconsumer = bufferSource.getBuffer(SHINE);
+            this.getParentModel().renderToBuffer(poseStack, vertexconsumer, 15728640, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
+        }
     }
 }

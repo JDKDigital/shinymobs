@@ -22,7 +22,9 @@ public class VillagerShinyLayer extends RenderLayer<Villager, VillagerModel<Vill
 
     @Override
     public void render(PoseStack poseStack, MultiBufferSource bufferSource, int packedLightIn, Villager entity, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
-        VertexConsumer vertexconsumer = bufferSource.getBuffer(SHINY);
-        this.getParentModel().renderToBuffer(poseStack, vertexconsumer, 15728640, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
+        if (!entity.isInvisible()) {
+            VertexConsumer vertexconsumer = bufferSource.getBuffer(SHINY);
+            this.getParentModel().renderToBuffer(poseStack, vertexconsumer, 15728640, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
+        }
     }
 }

@@ -22,20 +22,20 @@ public class TropicalFishShinyLayer extends RenderLayer<TropicalFish, ColorableH
     private final TropicalFishModelA<TropicalFish> modelA;
     private final TropicalFishModelB<TropicalFish> modelB;
     private static final RenderType[] SHINE_A = new RenderType[]{
-        RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/fish/tropical_a_pattern_1.png")),
-        RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/fish/tropical_a_pattern_2.png")),
-        RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/fish/tropical_a_pattern_3.png")),
-        RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/fish/tropical_a_pattern_4.png")),
-        RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/fish/tropical_a_pattern_5.png")),
-        RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/fish/tropical_a_pattern_6.png"))
+            RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/fish/tropical_a_pattern_1.png")),
+            RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/fish/tropical_a_pattern_2.png")),
+            RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/fish/tropical_a_pattern_3.png")),
+            RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/fish/tropical_a_pattern_4.png")),
+            RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/fish/tropical_a_pattern_5.png")),
+            RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/fish/tropical_a_pattern_6.png"))
     };
     private static final RenderType[] SHINE_B = new RenderType[]{
-        RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/fish/tropical_b_pattern_1.png")),
-        RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/fish/tropical_b_pattern_2.png")),
-        RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/fish/tropical_b_pattern_3.png")),
-        RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/fish/tropical_b_pattern_4.png")),
-        RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/fish/tropical_b_pattern_5.png")),
-        RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/fish/tropical_b_pattern_6.png"))
+            RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/fish/tropical_b_pattern_1.png")),
+            RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/fish/tropical_b_pattern_2.png")),
+            RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/fish/tropical_b_pattern_3.png")),
+            RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/fish/tropical_b_pattern_4.png")),
+            RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/fish/tropical_b_pattern_5.png")),
+            RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/fish/tropical_b_pattern_6.png"))
     };
 
     public TropicalFishShinyLayer(RenderLayerParent<TropicalFish, ColorableHierarchicalModel<TropicalFish>> renderer, EntityModelSet modelSet) {
@@ -46,13 +46,15 @@ public class TropicalFishShinyLayer extends RenderLayer<TropicalFish, ColorableH
 
     @Override
     public void render(PoseStack poseStack, MultiBufferSource bufferSource, int packedLightIn, TropicalFish entity, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
-        VertexConsumer vertexconsumer = bufferSource.getBuffer(TropicalFish.getBaseVariant(entity.getVariant()) == 0 ? SHINE_A[getPatternVariant(entity.getVariant())] : SHINE_B[getPatternVariant(entity.getVariant())]);
-        EntityModel<TropicalFish> entityModel = entity.getBaseVariant() == 0 ? this.modelA : this.modelB;
-        this.getParentModel().copyPropertiesTo(entityModel);
-        entityModel.prepareMobModel(entity, limbSwing, limbSwingAmount, partialTicks);
-        entityModel.setupAnim(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch);
-        float[] afloat = entity.getPatternColor();
-        entityModel.renderToBuffer(poseStack, vertexconsumer, 15728640, OverlayTexture.NO_OVERLAY, afloat[0], afloat[1], afloat[2], 1.0F);
+        if (!entity.isInvisible()) {
+            VertexConsumer vertexconsumer = bufferSource.getBuffer(TropicalFish.getBaseVariant(entity.getVariant()) == 0 ? SHINE_A[getPatternVariant(entity.getVariant())] : SHINE_B[getPatternVariant(entity.getVariant())]);
+            EntityModel<TropicalFish> entityModel = entity.getBaseVariant() == 0 ? this.modelA : this.modelB;
+            this.getParentModel().copyPropertiesTo(entityModel);
+            entityModel.prepareMobModel(entity, limbSwing, limbSwingAmount, partialTicks);
+            entityModel.setupAnim(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch);
+            float[] afloat = entity.getPatternColor();
+            entityModel.renderToBuffer(poseStack, vertexconsumer, 15728640, OverlayTexture.NO_OVERLAY, afloat[0], afloat[1], afloat[2], 1.0F);
+        }
     }
 
     private static int getPatternVariant(int p_30065_) {

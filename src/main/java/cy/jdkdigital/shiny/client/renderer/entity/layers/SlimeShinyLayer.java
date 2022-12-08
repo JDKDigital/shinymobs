@@ -2,6 +2,7 @@ package cy.jdkdigital.shiny.client.renderer.entity.layers;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
+import cy.jdkdigital.shiny.ShinyMod;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.SlimeModel;
 import net.minecraft.client.model.geom.EntityModelSet;
@@ -17,7 +18,7 @@ import net.minecraft.world.entity.monster.Slime;
 public class SlimeShinyLayer extends RenderLayer<Slime, SlimeModel<Slime>>
 {
     private final EntityModel<Slime> model;
-    private static final RenderType SHINY = RenderType.eyes(new ResourceLocation("textures/entity/slime/slime.png"));
+    private static final RenderType SHINY = RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/slime/slime.png"));
 
     public SlimeShinyLayer(RenderLayerParent<Slime, SlimeModel<Slime>> renderer, EntityModelSet modelSet) {
         super(renderer);
@@ -26,9 +27,8 @@ public class SlimeShinyLayer extends RenderLayer<Slime, SlimeModel<Slime>>
 
     @Override
     public void render(PoseStack poseStack, MultiBufferSource bufferSource, int packedLightIn, Slime entity, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
-        VertexConsumer vertexconsumer = bufferSource.getBuffer(SHINY);
-
         if (!entity.isInvisible()) {
+            VertexConsumer vertexconsumer = bufferSource.getBuffer(SHINY);
             this.getParentModel().copyPropertiesTo(this.model);
             this.model.prepareMobModel(entity, limbSwing, limbSwingAmount, partialTicks);
             this.model.setupAnim(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch);
