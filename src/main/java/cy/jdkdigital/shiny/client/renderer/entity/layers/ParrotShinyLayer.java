@@ -12,15 +12,19 @@ import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.animal.Parrot;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class ParrotShinyLayer extends RenderLayer<Parrot, ParrotModel>
 {
-    private static final RenderType[] SHINE = new RenderType[]{
-            RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/parrot/parrot_red_blue.png")),
-            RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/parrot/parrot_blue.png")),
-            RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/parrot/parrot_green.png")),
-            RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/parrot/parrot_yellow_blue.png")),
-            RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/parrot/parrot_grey.png"))
-    };
+    private static final Map<Parrot.Variant, RenderType> SHINE = new HashMap<>()
+    {{
+        put(Parrot.Variant.RED_BLUE, RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/parrot/parrot_red_blue.png")));
+        put(Parrot.Variant.BLUE, RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/parrot/parrot_blue.png")));
+        put(Parrot.Variant.GREEN, RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/parrot/parrot_green.png")));
+        put(Parrot.Variant.YELLOW_BLUE, RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/parrot/parrot_yellow_blue.png")));
+        put(Parrot.Variant.GRAY, RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/parrot/parrot_grey.png")));
+    }};
 
     public ParrotShinyLayer(RenderLayerParent<Parrot, ParrotModel> renderer) {
         super(renderer);
@@ -29,7 +33,7 @@ public class ParrotShinyLayer extends RenderLayer<Parrot, ParrotModel>
     @Override
     public void render(PoseStack poseStack, MultiBufferSource bufferSource, int packedLightIn, Parrot entity, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
         if (!entity.isInvisible()) {
-            VertexConsumer vertexconsumer = bufferSource.getBuffer(SHINE[entity.getVariant()]);
+            VertexConsumer vertexconsumer = bufferSource.getBuffer(SHINE.get(entity.getVariant()));
             this.getParentModel().renderToBuffer(poseStack, vertexconsumer, 15728640, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
         }
     }

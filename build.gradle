@@ -34,7 +34,7 @@ minecraft {
     //
     // Use non-default mappings at your own risk. They may not always work.
     // Simply re-run your setup task after changing the mappings to update your workspace.
-    mappings channel: 'official', version: '1.19.2'
+    mappings channel: 'official', version: '1.19.3'
 
     accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg') // Currently, this location cannot be changed from the default.
 
@@ -136,12 +136,12 @@ repositories {
 dependencies {
     minecraft "net.minecraftforge:forge:${forgeversion}"
 
-    implementation fg.deobf("curse.maven:jade-324717:3987060")
-    implementation fg.deobf("curse.maven:patchouli-306770:3936481")
-    implementation fg.deobf("curse.maven:jei-238222:3969039")
-    implementation fg.deobf("curse.maven:productivebees-377897:3968955")
-    implementation fg.deobf("curse.maven:jonns-trophies-510170:3994400")
-    implementation fg.deobf("curse.maven:everythingcopper-579545:3999139")
+//    implementation fg.deobf("curse.maven:jade-324717:3987060")
+//    implementation fg.deobf("curse.maven:patchouli-306770:3936481")
+//    implementation fg.deobf("curse.maven:jei-238222:3969039")
+//    implementation fg.deobf("curse.maven:productivebees-377897:3968955")
+//    implementation fg.deobf("curse.maven:jonns-trophies-510170:3994400")
+//    implementation fg.deobf("curse.maven:everythingcopper-579545:3999139")
 }
 
 // Example for how to get properties into the manifest for reading at runtime.

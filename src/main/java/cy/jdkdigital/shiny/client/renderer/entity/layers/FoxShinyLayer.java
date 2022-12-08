@@ -27,7 +27,7 @@ public class FoxShinyLayer extends RenderLayer<Fox, FoxModel<Fox>>
     public void render(PoseStack poseStack, MultiBufferSource bufferSource, int packedLightIn, Fox entity, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
         if (!entity.isInvisible()) {
             VertexConsumer vertexconsumer = bufferSource.getBuffer(entity.isSleeping() ? SNOW_FOX_SLEEP_TEXTURE : SNOW_FOX_TEXTURE);
-            if (entity.getFoxType() == Fox.Type.RED) {
+            if (entity.getVariant() == Fox.Type.RED) {
                 vertexconsumer = bufferSource.getBuffer(entity.isSleeping() ? RED_FOX_SLEEP_TEXTURE : RED_FOX_TEXTURE);
             }
             this.getParentModel().renderToBuffer(poseStack, vertexconsumer, 15728640, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);

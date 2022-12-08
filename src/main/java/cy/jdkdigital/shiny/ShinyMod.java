@@ -2,7 +2,6 @@ package cy.jdkdigital.shiny;
 
 import cy.jdkdigital.shiny.common.entity.ShinyVillager;
 import cy.jdkdigital.shiny.init.ModEntities;
-import cy.jdkdigital.shiny.init.ModItemGroups;
 import cy.jdkdigital.shiny.init.ModItems;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.NbtOps;
@@ -14,6 +13,7 @@ import net.minecraft.world.entity.ambient.Bat;
 import net.minecraft.world.entity.animal.*;
 import net.minecraft.world.entity.animal.allay.Allay;
 import net.minecraft.world.entity.animal.axolotl.Axolotl;
+import net.minecraft.world.entity.animal.camel.Camel;
 import net.minecraft.world.entity.animal.frog.Frog;
 import net.minecraft.world.entity.animal.frog.Tadpole;
 import net.minecraft.world.entity.animal.goat.Goat;
@@ -26,8 +26,12 @@ import net.minecraft.world.entity.monster.piglin.Piglin;
 import net.minecraft.world.entity.monster.piglin.PiglinBrute;
 import net.minecraft.world.entity.monster.warden.Warden;
 import net.minecraft.world.entity.npc.Villager;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.CreativeModeTabs;
+import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.util.LogicalSidedProvider;
+import net.minecraftforge.event.CreativeModeTabEvent;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.event.entity.EntityJoinLevelEvent;
 import net.minecraftforge.event.entity.living.LivingConversionEvent;
@@ -47,6 +51,7 @@ public class ShinyMod
 {
     public static final String MODID = "shiny";
     public static final Logger LOGGER = LogManager.getLogger();
+    public static CreativeModeTab TAB;
 
     public ShinyMod() {
         // Register ourselves for server and other game events we are interested in
@@ -55,10 +60,108 @@ public class ShinyMod
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         ModEntities.ENTITIES.register(modEventBus);
         ModItems.ITEMS.register(modEventBus);
-
-        ModItemGroups.init();
+        modEventBus.addListener(this::creativeTab);
+        modEventBus.addListener(this::tabs);
 
         ModLoadingContext.get().registerConfig(ModConfig.Type.SERVER, ShinyModConfig.SERVER_CONFIG);
+    }
+
+    private void creativeTab(final CreativeModeTabEvent.Register event) {
+        TAB = event.registerCreativeModeTab(new ResourceLocation(ShinyMod.MODID, ShinyMod.MODID), builder -> {
+            builder.icon(() -> new ItemStack(ModItems.SHINY_AXOLOTL_BUCKET.get()));
+        });
+    }
+
+    private void tabs(final CreativeModeTabEvent.BuildContents event) {
+        event.registerSimple(CreativeModeTabs.TOOLS_AND_UTILITIES,
+                ModItems.SHINY_PUFFERFISH_BUCKET.get(),
+                ModItems.SHINY_SALMON_BUCKET.get(),
+                ModItems.SHINY_TROPICAL_FISH_BUCKET.get(),
+                ModItems.SHINY_COD_BUCKET.get(),
+                ModItems.SHINY_AXOLOTL_BUCKET.get());
+
+        if (event.getTab().equals(TAB)) {
+            String[] entities = {
+                    "armor_stand",
+                    "axolotl",
+                    "bat",
+                    "bee",
+                    "blaze",
+                    "cat",
+                    "cave_spider",
+                    "chicken",
+                    "cod",
+                    "cow",
+                    "creeper",
+                    "dolphin",
+                    "donkey",
+                    "drowned",
+                    "elder_guardian",
+                    "enderman",
+                    "endermite",
+                    "evoker",
+                    "fox",
+                    "ghast",
+                    "glow_squid",
+                    "goat",
+                    "guardian",
+                    "hoglin",
+                    "horse",
+                    "husk",
+                    "illusioner",
+                    "iron_golem",
+                    "llama",
+                    "magma_cube",
+                    "mule",
+                    "mooshroom",
+                    "ocelot",
+                    "panda",
+                    "parrot",
+                    "phantom",
+                    "pig",
+                    "piglin",
+                    "piglin_brute",
+                    "pillager",
+                    "polar_bear",
+                    "pufferfish",
+                    "rabbit",
+                    "ravager",
+                    "salmon",
+                    "sheep",
+                    "shulker",
+                    "silverfish",
+                    "skeleton",
+                    "skeleton_horse",
+                    "slime",
+                    "snow_golem",
+                    "spider",
+                    "squid",
+                    "stray",
+                    "strider",
+                    "trader_llama",
+                    "tropical_fish",
+                    "turtle",
+                    "vex",
+                    "villager",
+                    "vindicator",
+                    "wandering_trader",
+                    "witch",
+                    "wither",
+                    "wither_skeleton",
+                    "wolf",
+                    "zoglin",
+                    "zombie",
+                    "zombie_horse",
+                    "zombie_villager",
+                    "zombified_piglin"
+            };
+
+            event.register(TAB, (enabledFlags, populator, hasPermissions) -> {
+                for (String entityId : entities) {
+//                    populator.accept(TrophyBlock.createTrophy("shiny:shiny_" + entityId, new CompoundTag(), "Shiny " + entityId));
+                }
+            });
+        }
     }
 
     @SubscribeEvent
@@ -70,7 +173,7 @@ public class ShinyMod
                 if (shiny != null) {
                     var executor = LogicalSidedProvider.WORKQUEUE.get(event.getLevel().isClientSide ? LogicalSide.CLIENT : LogicalSide.SERVER);
                     executor.tell(new TickTask(0, () -> {
-                        Entity newEntity = shiny.create(serverLevel, new CompoundTag(), (entity.hasCustomName() ? entity.getCustomName() : null), null, entity.blockPosition(), MobSpawnType.CONVERSION, false, false);
+                        Entity newEntity = shiny.create(serverLevel, new CompoundTag(), null, entity.blockPosition(), MobSpawnType.CONVERSION, false, false);
                         if (newEntity != null) {
                             entity.discard();
                             event.setCanceled(true);
@@ -92,7 +195,7 @@ public class ShinyMod
                 ZombieVillager zombievillager = villager.convertTo(ModEntities.ZOMBIE_VILLAGER.get(), false);
                 zombievillager.finalizeSpawn(level, level.getCurrentDifficultyAt(zombievillager.blockPosition()), MobSpawnType.CONVERSION, new Zombie.ZombieGroupData(false, true), (CompoundTag)null);
                 zombievillager.setVillagerData(villager.getVillagerData());
-                zombievillager.setGossips(villager.getGossips().store(NbtOps.INSTANCE).getValue());
+                zombievillager.setGossips(villager.getGossips().store(NbtOps.INSTANCE));
                 zombievillager.setTradeOffers(villager.getOffers().createTag());
                 zombievillager.setVillagerXp(villager.getVillagerXp());
             }));
@@ -180,6 +283,7 @@ public class ShinyMod
             event.put(ModEntities.TADPOLE.get(), Tadpole.createAttributes().build());
             event.put(ModEntities.FROG.get(), Frog.createAttributes().build());
             event.put(ModEntities.ALLAY.get(), Allay.createAttributes().build());
+            event.put(ModEntities.CAMEL.get(), Camel.createAttributes().build());
         }
     }
 }

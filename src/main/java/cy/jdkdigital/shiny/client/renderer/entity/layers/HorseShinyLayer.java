@@ -26,7 +26,7 @@ public class HorseShinyLayer extends RenderLayer<Horse, HorseModel<Horse>>
         map.put(Variant.BROWN, RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/horse/horse_brown.png")));
         map.put(Variant.BLACK, RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/horse/horse_black.png")));
         map.put(Variant.GRAY, RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/horse/horse_gray.png")));
-        map.put(Variant.DARKBROWN, RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/horse/horse_darkbrown.png")));
+        map.put(Variant.DARK_BROWN, RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/horse/horse_darkbrown.png")));
     });
 
     public HorseShinyLayer(RenderLayerParent<Horse, HorseModel<Horse>> renderer) {

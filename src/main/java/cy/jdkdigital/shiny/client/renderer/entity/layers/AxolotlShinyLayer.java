@@ -19,7 +19,7 @@ import java.util.Map;
 public class AxolotlShinyLayer extends RenderLayer<Axolotl, AxolotlModel<Axolotl>>
 {
     private static final Map<Axolotl.Variant, RenderType> SHINE = Util.make(Maps.newHashMap(), (map) -> {
-        for(Axolotl.Variant axolotl$variant : Axolotl.Variant.BY_ID) {
+        for(Axolotl.Variant axolotl$variant : Axolotl.Variant.values()) {
             map.put(axolotl$variant, RenderType.eyes(new ResourceLocation(ShinyMod.MODID, String.format("textures/entity/axolotl/axolotl_%s.png", axolotl$variant.getName()))));
         }
     });

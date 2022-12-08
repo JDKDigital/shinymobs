@@ -39,7 +39,7 @@ public class CatShinyLayer extends RenderLayer<Cat, CatModel<Cat>>
     @Override
     public void render(PoseStack poseStack, MultiBufferSource bufferSource, int packedLightIn, Cat entity, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
         if (!entity.isInvisible()) {
-            VertexConsumer vertexconsumer = bufferSource.getBuffer(SHINE.getOrDefault(entity.getCatVariant(), SHINE.get(0)));
+            VertexConsumer vertexconsumer = bufferSource.getBuffer(SHINE.getOrDefault(entity.getVariant(), SHINE.get(0)));
             this.getParentModel().renderToBuffer(poseStack, vertexconsumer, 15728640, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
         }
     }

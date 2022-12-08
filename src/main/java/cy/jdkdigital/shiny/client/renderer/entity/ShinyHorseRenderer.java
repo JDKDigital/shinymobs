@@ -23,7 +23,7 @@ public class ShinyHorseRenderer extends AbstractHorseRenderer<Horse, HorseModel<
         map.put(Variant.BROWN, new ResourceLocation("textures/entity/horse/horse_brown.png"));
         map.put(Variant.BLACK, new ResourceLocation("textures/entity/horse/horse_black.png"));
         map.put(Variant.GRAY, new ResourceLocation("textures/entity/horse/horse_gray.png"));
-        map.put(Variant.DARKBROWN, new ResourceLocation("textures/entity/horse/horse_darkbrown.png"));
+        map.put(Variant.DARK_BROWN, new ResourceLocation("textures/entity/horse/horse_darkbrown.png"));
     });
 
     public ShinyHorseRenderer(EntityRendererProvider.Context context) {

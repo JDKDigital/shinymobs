@@ -17,26 +17,28 @@ import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.animal.TropicalFish;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class TropicalFishShinyLayer extends RenderLayer<TropicalFish, ColorableHierarchicalModel<TropicalFish>>
 {
     private final TropicalFishModelA<TropicalFish> modelA;
     private final TropicalFishModelB<TropicalFish> modelB;
-    private static final RenderType[] SHINE_A = new RenderType[]{
-            RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/fish/tropical_a_pattern_1.png")),
-            RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/fish/tropical_a_pattern_2.png")),
-            RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/fish/tropical_a_pattern_3.png")),
-            RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/fish/tropical_a_pattern_4.png")),
-            RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/fish/tropical_a_pattern_5.png")),
-            RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/fish/tropical_a_pattern_6.png"))
-    };
-    private static final RenderType[] SHINE_B = new RenderType[]{
-            RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/fish/tropical_b_pattern_1.png")),
-            RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/fish/tropical_b_pattern_2.png")),
-            RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/fish/tropical_b_pattern_3.png")),
-            RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/fish/tropical_b_pattern_4.png")),
-            RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/fish/tropical_b_pattern_5.png")),
-            RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/fish/tropical_b_pattern_6.png"))
-    };
+    private static final Map<TropicalFish.Pattern, RenderType> SHINE = new HashMap<>()
+    {{
+        put(TropicalFish.Pattern.KOB, RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/fish/tropical_a_pattern_1.png")));
+        put(TropicalFish.Pattern.SUNSTREAK, RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/fish/tropical_a_pattern_2.png")));
+        put(TropicalFish.Pattern.SNOOPER, RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/fish/tropical_a_pattern_3.png")));
+        put(TropicalFish.Pattern.DASHER, RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/fish/tropical_a_pattern_4.png")));
+        put(TropicalFish.Pattern.BRINELY, RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/fish/tropical_a_pattern_5.png")));
+        put(TropicalFish.Pattern.SPOTTY, RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/fish/tropical_a_pattern_6.png")));
+        put(TropicalFish.Pattern.FLOPPER, RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/fish/tropical_b_pattern_1.png")));
+        put(TropicalFish.Pattern.STRIPEY, RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/fish/tropical_b_pattern_2.png")));
+        put(TropicalFish.Pattern.GLITTER, RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/fish/tropical_b_pattern_3.png")));
+        put(TropicalFish.Pattern.BLOCKFISH, RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/fish/tropical_b_pattern_4.png")));
+        put(TropicalFish.Pattern.BETTY, RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/fish/tropical_b_pattern_5.png")));
+        put(TropicalFish.Pattern.CLAYFISH, RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/fish/tropical_b_pattern_6.png")));
+    }};
 
     public TropicalFishShinyLayer(RenderLayerParent<TropicalFish, ColorableHierarchicalModel<TropicalFish>> renderer, EntityModelSet modelSet) {
         super(renderer);
@@ -47,12 +49,12 @@ public class TropicalFishShinyLayer extends RenderLayer<TropicalFish, ColorableH
     @Override
     public void render(PoseStack poseStack, MultiBufferSource bufferSource, int packedLightIn, TropicalFish entity, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
         if (!entity.isInvisible()) {
-            VertexConsumer vertexconsumer = bufferSource.getBuffer(TropicalFish.getBaseVariant(entity.getVariant()) == 0 ? SHINE_A[getPatternVariant(entity.getVariant())] : SHINE_B[getPatternVariant(entity.getVariant())]);
-            EntityModel<TropicalFish> entityModel = entity.getBaseVariant() == 0 ? this.modelA : this.modelB;
+            VertexConsumer vertexconsumer = bufferSource.getBuffer(SHINE.get(entity.getVariant()));
+            EntityModel<TropicalFish> entityModel = entity.getVariant().base().equals(TropicalFish.Base.SMALL) ? this.modelA : this.modelB;
             this.getParentModel().copyPropertiesTo(entityModel);
             entityModel.prepareMobModel(entity, limbSwing, limbSwingAmount, partialTicks);
             entityModel.setupAnim(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch);
-            float[] afloat = entity.getPatternColor();
+            float[] afloat = entity.getPatternColor().getTextureDiffuseColors();
             entityModel.renderToBuffer(poseStack, vertexconsumer, 15728640, OverlayTexture.NO_OVERLAY, afloat[0], afloat[1], afloat[2], 1.0F);
         }
     }

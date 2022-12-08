@@ -37,13 +37,13 @@ public class RabbitShinyLayer extends RenderLayer<Rabbit, RabbitModel<Rabbit>>
             if ("Toast".equals(s)) {
                 vertexconsumer = bufferSource.getBuffer(RABBIT_TOAST_LOCATION);
             } else {
-                vertexconsumer = switch (entity.getRabbitType()) {
-                    case 1 -> bufferSource.getBuffer(RABBIT_WHITE_LOCATION);
-                    case 2 -> bufferSource.getBuffer(RABBIT_BLACK_LOCATION);
-                    case 3 -> bufferSource.getBuffer(RABBIT_WHITE_SPLOTCHED_LOCATION);
-                    case 4 -> bufferSource.getBuffer(RABBIT_GOLD_LOCATION);
-                    case 5 -> bufferSource.getBuffer(RABBIT_SALT_LOCATION);
-                    case 99 -> bufferSource.getBuffer(RABBIT_EVIL_LOCATION);
+                vertexconsumer = switch (entity.getVariant()) {
+                    case WHITE -> bufferSource.getBuffer(RABBIT_WHITE_LOCATION);
+                    case BLACK -> bufferSource.getBuffer(RABBIT_BLACK_LOCATION);
+                    case WHITE_SPLOTCHED -> bufferSource.getBuffer(RABBIT_WHITE_SPLOTCHED_LOCATION);
+                    case GOLD -> bufferSource.getBuffer(RABBIT_GOLD_LOCATION);
+                    case SALT -> bufferSource.getBuffer(RABBIT_SALT_LOCATION);
+                    case EVIL -> bufferSource.getBuffer(RABBIT_EVIL_LOCATION);
                     default -> bufferSource.getBuffer(RABBIT_BROWN_LOCATION);
                 };
             }

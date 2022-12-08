@@ -91,5 +91,6 @@ public class ClientSetup
         event.registerEntityRenderer(ModEntities.TADPOLE.get(), ShinyTadpoleRenderer::new);
         event.registerEntityRenderer(ModEntities.FROG.get(), ShinyFrogRenderer::new);
         event.registerEntityRenderer(ModEntities.ALLAY.get(), ShinyAllayRenderer::new);
+        event.registerEntityRenderer(ModEntities.CAMEL.get(), (context) -> new ShinyCamelRenderer(context, ModelLayers.CAMEL));
     }
 }

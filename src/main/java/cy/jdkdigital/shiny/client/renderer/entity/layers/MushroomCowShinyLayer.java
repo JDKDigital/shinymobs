@@ -30,7 +30,7 @@ public class MushroomCowShinyLayer extends RenderLayer<MushroomCow, CowModel<Mus
     @Override
     public void render(PoseStack poseStack, MultiBufferSource bufferSource, int packedLightIn, MushroomCow entity, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
         if (!entity.isInvisible()) {
-            VertexConsumer vertexconsumer = bufferSource.getBuffer(SHINE.get(entity.getMushroomType()));
+            VertexConsumer vertexconsumer = bufferSource.getBuffer(SHINE.get(entity.getVariant()));
             this.getParentModel().renderToBuffer(poseStack, vertexconsumer, 15728640, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
         }
     }

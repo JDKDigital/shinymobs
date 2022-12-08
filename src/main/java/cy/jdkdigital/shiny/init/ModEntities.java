@@ -9,6 +9,7 @@ import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.entity.ambient.Bat;
 import net.minecraft.world.entity.animal.*;
 import net.minecraft.world.entity.animal.allay.Allay;
+import net.minecraft.world.entity.animal.camel.Camel;
 import net.minecraft.world.entity.animal.frog.Frog;
 import net.minecraft.world.entity.animal.frog.Tadpole;
 import net.minecraft.world.entity.animal.goat.Goat;
@@ -20,8 +21,8 @@ import net.minecraft.world.entity.monster.hoglin.Hoglin;
 import net.minecraft.world.entity.monster.piglin.Piglin;
 import net.minecraft.world.entity.monster.piglin.PiglinBrute;
 import net.minecraft.world.entity.monster.warden.Warden;
-import net.minecraft.world.entity.npc.Villager;
 import net.minecraft.world.entity.npc.WanderingTrader;
+import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.DeferredRegister;
@@ -108,9 +109,9 @@ public class ModEntities
     public static final RegistryObject<EntityType<ZombifiedPiglin>> ZOMBIFIED_PIGLIN = register("shiny_zombified_piglin", EntityType.Builder.of(ZombifiedPiglin::new, MobCategory.MONSTER).fireImmune().sized(0.6F, 1.95F).clientTrackingRange(8));
     public static final RegistryObject<EntityType<Warden>> WARDEN = register("shiny_warden", EntityType.Builder.<Warden>of(Warden::new, MobCategory.MONSTER).sized(0.9F, 2.9F).clientTrackingRange(16).fireImmune());
     public static final RegistryObject<EntityType<Tadpole>> TADPOLE = register("shiny_tadpole", EntityType.Builder.<Tadpole>of(Tadpole::new, MobCategory.CREATURE).sized(Tadpole.HITBOX_WIDTH, Tadpole.HITBOX_HEIGHT).clientTrackingRange(10));
-    public static final RegistryObject<EntityType<Frog>> FROG = register("shiny_frog", EntityType.Builder.<Frog>of(Frog::new, MobCategory.CREATURE).sized(0.5F, 0.5F).clientTrackingRange(10));
-    public static final RegistryObject<EntityType<Allay>> ALLAY = register("shiny_allay", EntityType.Builder.<Allay>of(Allay::new, MobCategory.CREATURE).sized(0.35F, 0.6F).clientTrackingRange(8).updateInterval(2));
-
+    public static final RegistryObject<EntityType<Frog>> FROG = register("shiny_frog", EntityType.Builder.of(Frog::new, MobCategory.CREATURE).sized(0.5F, 0.5F).clientTrackingRange(10));
+    public static final RegistryObject<EntityType<Allay>> ALLAY = register("shiny_allay", EntityType.Builder.of(Allay::new, MobCategory.CREATURE).sized(0.35F, 0.6F).clientTrackingRange(8).updateInterval(2));
+    public static final RegistryObject<EntityType<Camel>> CAMEL = register("shiny_camel", EntityType.Builder.of(Camel::new, MobCategory.CREATURE).sized(1.7F, 2.375F).clientTrackingRange(10).requiredFeatures(FeatureFlags.UPDATE_1_20));
 
     public static <E extends Entity> RegistryObject<EntityType<E>> register(String name, EntityType.Builder<E> builder) {
         return ENTITIES.register(name, () -> builder.build(ShinyMod.MODID + ":" + name));
