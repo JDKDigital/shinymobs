@@ -15,7 +15,7 @@ public class ShinySkeleton extends Skeleton
     protected void doFreezeConversion() {
         this.convertTo(ModEntities.STRAY.get(), true);
         if (!this.isSilent()) {
-            this.level.levelEvent(null, 1048, this.blockPosition(), 0);
+            this.level().levelEvent(null, 1048, this.blockPosition(), 0);
         }
     }
 }

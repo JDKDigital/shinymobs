@@ -15,7 +15,7 @@ public class ShinyZombie extends Zombie
     protected void doUnderWaterConversion() {
         this.convertToZombieType(ModEntities.DROWNED.get());
         if (!this.isSilent()) {
-            this.level.levelEvent(null, 1040, this.blockPosition(), 0);
+            this.level().levelEvent(null, 1040, this.blockPosition(), 0);
         }
     }
 }

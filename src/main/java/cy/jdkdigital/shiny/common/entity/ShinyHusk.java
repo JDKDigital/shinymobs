@@ -15,7 +15,7 @@ public class ShinyHusk extends Husk
     protected void doUnderWaterConversion() {
         this.convertToZombieType(ModEntities.ZOMBIE.get());
         if (!this.isSilent()) {
-            this.level.levelEvent(null, 1040, this.blockPosition(), 0);
+            this.level().levelEvent(null, 1040, this.blockPosition(), 0);
         }
     }
 }

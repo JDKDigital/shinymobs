@@ -111,7 +111,7 @@ public class ModEntities
     public static final RegistryObject<EntityType<Tadpole>> TADPOLE = register("shiny_tadpole", EntityType.Builder.<Tadpole>of(Tadpole::new, MobCategory.CREATURE).sized(Tadpole.HITBOX_WIDTH, Tadpole.HITBOX_HEIGHT).clientTrackingRange(10));
     public static final RegistryObject<EntityType<Frog>> FROG = register("shiny_frog", EntityType.Builder.of(Frog::new, MobCategory.CREATURE).sized(0.5F, 0.5F).clientTrackingRange(10));
     public static final RegistryObject<EntityType<Allay>> ALLAY = register("shiny_allay", EntityType.Builder.of(Allay::new, MobCategory.CREATURE).sized(0.35F, 0.6F).clientTrackingRange(8).updateInterval(2));
-    public static final RegistryObject<EntityType<Camel>> CAMEL = register("shiny_camel", EntityType.Builder.of(Camel::new, MobCategory.CREATURE).sized(1.7F, 2.375F).clientTrackingRange(10).requiredFeatures(FeatureFlags.UPDATE_1_20));
+    public static final RegistryObject<EntityType<Camel>> CAMEL = register("shiny_camel", EntityType.Builder.of(Camel::new, MobCategory.CREATURE).sized(1.7F, 2.375F).clientTrackingRange(10));
 
     public static <E extends Entity> RegistryObject<EntityType<E>> register(String name, EntityType.Builder<E> builder) {
         return ENTITIES.register(name, () -> builder.build(ShinyMod.MODID + ":" + name));
