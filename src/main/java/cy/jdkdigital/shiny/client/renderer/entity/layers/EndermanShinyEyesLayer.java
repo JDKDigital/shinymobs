@@ -10,7 +10,7 @@ import net.minecraft.world.entity.LivingEntity;
 
 public class EndermanShinyEyesLayer<T extends LivingEntity> extends EyesLayer<T, EndermanModel<T>>
 {
-    private static final RenderType ENDERMAN_EYES = RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/enderman/enderman_eyes.png"));
+    private static final RenderType ENDERMAN_EYES = RenderType.eyes(ResourceLocation.fromNamespaceAndPath(ShinyMod.MODID, "textures/entity/enderman/enderman_eyes.png"));
 
     public EndermanShinyEyesLayer(RenderLayerParent<T, EndermanModel<T>> p_116964_) {
         super(p_116964_);

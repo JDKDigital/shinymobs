@@ -19,9 +19,9 @@ import java.util.Map;
 public class FrogShinyLayer extends RenderLayer<Frog, FrogModel<Frog>>
 {
     private static final Map<String, RenderType> SHINE = Util.make(Maps.newHashMap(), (map) -> {
-        map.put("temperate", RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/frog/temperate_frog.png")));
-        map.put("warm", RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/frog/warm_frog.png")));
-        map.put("cold", RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/frog/cold_frog.png")));
+        map.put("temperate", RenderType.eyes(ResourceLocation.fromNamespaceAndPath(ShinyMod.MODID, "textures/entity/frog/temperate_frog.png")));
+        map.put("warm", RenderType.eyes(ResourceLocation.fromNamespaceAndPath(ShinyMod.MODID, "textures/entity/frog/warm_frog.png")));
+        map.put("cold", RenderType.eyes(ResourceLocation.fromNamespaceAndPath(ShinyMod.MODID, "textures/entity/frog/cold_frog.png")));
     });
 
     public FrogShinyLayer(RenderLayerParent<Frog, FrogModel<Frog>> renderer) {
@@ -32,7 +32,7 @@ public class FrogShinyLayer extends RenderLayer<Frog, FrogModel<Frog>>
     public void render(PoseStack poseStack, MultiBufferSource bufferSource, int packedLightIn, Frog entity, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
         if (!entity.isInvisible()) {
             VertexConsumer vertexconsumer = bufferSource.getBuffer(SHINE.getOrDefault(entity.getVariant().toString(), SHINE.get("temperate")));
-            this.getParentModel().renderToBuffer(poseStack, vertexconsumer, 15728640, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
+            this.getParentModel().renderToBuffer(poseStack, vertexconsumer, 15728640, OverlayTexture.NO_OVERLAY);
         }
     }
 }

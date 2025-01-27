@@ -14,7 +14,7 @@ import net.minecraft.world.entity.animal.Chicken;
 
 public class ChickenShinyLayer extends RenderLayer<Chicken, ChickenModel<Chicken>>
 {
-    private static final RenderType SHINE = RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/chicken.png"));
+    private static final RenderType SHINE = RenderType.eyes(ResourceLocation.fromNamespaceAndPath(ShinyMod.MODID, "textures/entity/chicken.png"));
 
     public ChickenShinyLayer(RenderLayerParent<Chicken, ChickenModel<Chicken>> renderer) {
         super(renderer);
@@ -24,7 +24,7 @@ public class ChickenShinyLayer extends RenderLayer<Chicken, ChickenModel<Chicken
     public void render(PoseStack poseStack, MultiBufferSource bufferSource, int packedLightIn, Chicken entity, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
         if (!entity.isInvisible()) {
             VertexConsumer vertexconsumer = bufferSource.getBuffer(SHINE);
-            this.getParentModel().renderToBuffer(poseStack, vertexconsumer, 15728640, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
+            this.getParentModel().renderToBuffer(poseStack, vertexconsumer, 15728640, OverlayTexture.NO_OVERLAY);
         }
     }
 }

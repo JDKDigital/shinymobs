@@ -1,13 +1,11 @@
 package cy.jdkdigital.shiny;
 
-import net.minecraftforge.common.ForgeConfigSpec;
-import net.minecraftforge.fml.common.Mod;
+import net.neoforged.neoforge.common.ModConfigSpec;
 
-@Mod.EventBusSubscriber
 public class ShinyModConfig
 {
-    private static final ForgeConfigSpec.Builder SERVER_BUILDER = new ForgeConfigSpec.Builder();
-    public static final ForgeConfigSpec SERVER_CONFIG;
+    private static final ModConfigSpec.Builder SERVER_BUILDER = new ModConfigSpec.Builder();
+    public static final ModConfigSpec SERVER_CONFIG;
     public static final General GENERAL = new General(SERVER_BUILDER);
 
     static {
@@ -16,9 +14,9 @@ public class ShinyModConfig
 
     public static class General
     {
-        public final ForgeConfigSpec.DoubleValue shinySpawnChance;
+        public final ModConfigSpec.DoubleValue shinySpawnChance;
 
-        public General(ForgeConfigSpec.Builder builder) {
+        public General(ModConfigSpec.Builder builder) {
             builder.push("General");
 
             shinySpawnChance = builder

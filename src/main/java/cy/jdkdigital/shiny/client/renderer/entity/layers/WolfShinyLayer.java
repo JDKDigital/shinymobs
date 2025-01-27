@@ -14,9 +14,9 @@ import net.minecraft.world.entity.animal.Wolf;
 
 public class WolfShinyLayer extends RenderLayer<Wolf, WolfModel<Wolf>>
 {
-    private static final RenderType SHINE = RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/wolf/wolf.png"));
-    private static final RenderType SHINE_TAME = RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/wolf/wolf_tame.png"));
-    private static final RenderType SHINE_ANGRY = RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/wolf/wolf_angry.png"));
+    private static final RenderType SHINE = RenderType.eyes(ResourceLocation.fromNamespaceAndPath(ShinyMod.MODID, "textures/entity/wolf/wolf.png"));
+    private static final RenderType SHINE_TAME = RenderType.eyes(ResourceLocation.fromNamespaceAndPath(ShinyMod.MODID, "textures/entity/wolf/wolf_tame.png"));
+    private static final RenderType SHINE_ANGRY = RenderType.eyes(ResourceLocation.fromNamespaceAndPath(ShinyMod.MODID, "textures/entity/wolf/wolf_angry.png"));
 
     public WolfShinyLayer(RenderLayerParent<Wolf, WolfModel<Wolf>> renderer) {
         super(renderer);
@@ -26,7 +26,7 @@ public class WolfShinyLayer extends RenderLayer<Wolf, WolfModel<Wolf>>
     public void render(PoseStack poseStack, MultiBufferSource bufferSource, int packedLightIn, Wolf entity, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
         if (!entity.isInvisible()) {
             VertexConsumer vertexconsumer = bufferSource.getBuffer(entity.isTame() ? SHINE_TAME : (entity.isAngry() ? SHINE_ANGRY : SHINE));
-            this.getParentModel().renderToBuffer(poseStack, vertexconsumer, 15728640, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
+            this.getParentModel().renderToBuffer(poseStack, vertexconsumer, 15728640, OverlayTexture.NO_OVERLAY);
         }
     }
 }

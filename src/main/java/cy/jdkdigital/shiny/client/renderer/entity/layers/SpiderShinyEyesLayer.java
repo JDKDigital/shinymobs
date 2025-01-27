@@ -11,7 +11,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class SpiderShinyEyesLayer<T extends Entity, M extends SpiderModel<T>> extends EyesLayer<T, M>
 {
-    private static final RenderType SPIDER_EYES = RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/spider_eyes.png"));
+    private static final RenderType SPIDER_EYES = RenderType.eyes(ResourceLocation.fromNamespaceAndPath(ShinyMod.MODID, "textures/entity/spider_eyes.png"));
 
     public SpiderShinyEyesLayer(RenderLayerParent<T, M> p_117507_) {
         super(p_117507_);

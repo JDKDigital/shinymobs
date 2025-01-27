@@ -15,7 +15,7 @@ import net.minecraft.world.entity.monster.SpellcasterIllager;
 
 public class EvokerShinyLayer<T extends SpellcasterIllager> extends RenderLayer<Evoker, IllagerModel<Evoker>>
 {
-    private static final RenderType SHINE = RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/illager/evoker.png"));
+    private static final RenderType SHINE = RenderType.eyes(ResourceLocation.fromNamespaceAndPath(ShinyMod.MODID, "textures/entity/illager/evoker.png"));
 
     public EvokerShinyLayer(RenderLayerParent<Evoker, IllagerModel<Evoker>> renderer) {
         super(renderer);
@@ -25,7 +25,7 @@ public class EvokerShinyLayer<T extends SpellcasterIllager> extends RenderLayer<
     public void render(PoseStack poseStack, MultiBufferSource bufferSource, int packedLightIn, Evoker entity, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
         if (!entity.isInvisible()) {
             VertexConsumer vertexconsumer = bufferSource.getBuffer(SHINE);
-            this.getParentModel().renderToBuffer(poseStack, vertexconsumer, 15728640, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
+            this.getParentModel().renderToBuffer(poseStack, vertexconsumer, 15728640, OverlayTexture.NO_OVERLAY);
         }
     }
 }

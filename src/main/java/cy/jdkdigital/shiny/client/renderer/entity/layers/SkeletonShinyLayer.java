@@ -14,7 +14,7 @@ import net.minecraft.world.entity.monster.AbstractSkeleton;
 
 public class SkeletonShinyLayer extends RenderLayer<AbstractSkeleton, SkeletonModel<AbstractSkeleton>>
 {
-    private static final RenderType SHINE = RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/skeleton/skeleton.png"));
+    private static final RenderType SHINE = RenderType.eyes(ResourceLocation.fromNamespaceAndPath(ShinyMod.MODID, "textures/entity/skeleton/skeleton.png"));
 
     public SkeletonShinyLayer(RenderLayerParent<AbstractSkeleton, SkeletonModel<AbstractSkeleton>> renderer) {
         super(renderer);
@@ -24,7 +24,7 @@ public class SkeletonShinyLayer extends RenderLayer<AbstractSkeleton, SkeletonMo
     public void render(PoseStack poseStack, MultiBufferSource bufferSource, int packedLightIn, AbstractSkeleton entity, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
         if (!entity.isInvisible()) {
             VertexConsumer vertexconsumer = bufferSource.getBuffer(SHINE);
-            this.getParentModel().renderToBuffer(poseStack, vertexconsumer, 15728640, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
+            this.getParentModel().renderToBuffer(poseStack, vertexconsumer, 15728640, OverlayTexture.NO_OVERLAY);
         }
     }
 }

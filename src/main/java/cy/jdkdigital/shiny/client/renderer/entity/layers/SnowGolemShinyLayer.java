@@ -14,7 +14,7 @@ import net.minecraft.world.entity.animal.SnowGolem;
 
 public class SnowGolemShinyLayer extends RenderLayer<SnowGolem, SnowGolemModel<SnowGolem>>
 {
-    private static final RenderType SHINE = RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/snow_golem.png"));
+    private static final RenderType SHINE = RenderType.eyes(ResourceLocation.fromNamespaceAndPath(ShinyMod.MODID, "textures/entity/snow_golem.png"));
 
     public SnowGolemShinyLayer(RenderLayerParent<SnowGolem, SnowGolemModel<SnowGolem>> renderer) {
         super(renderer);
@@ -24,7 +24,7 @@ public class SnowGolemShinyLayer extends RenderLayer<SnowGolem, SnowGolemModel<S
     public void render(PoseStack poseStack, MultiBufferSource bufferSource, int packedLightIn, SnowGolem entity, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
         if (!entity.isInvisible()) {
             VertexConsumer vertexconsumer = bufferSource.getBuffer(SHINE);
-            this.getParentModel().renderToBuffer(poseStack, vertexconsumer, 15728640, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
+            this.getParentModel().renderToBuffer(poseStack, vertexconsumer, 15728640, OverlayTexture.NO_OVERLAY);
         }
     }
 }

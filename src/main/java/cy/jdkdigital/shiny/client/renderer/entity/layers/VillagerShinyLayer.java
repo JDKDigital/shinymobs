@@ -14,7 +14,7 @@ import net.minecraft.world.entity.npc.Villager;
 
 public class VillagerShinyLayer extends RenderLayer<Villager, VillagerModel<Villager>>
 {
-    private static final RenderType SHINY = RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/villager/villager.png"));
+    private static final RenderType SHINY = RenderType.eyes(ResourceLocation.fromNamespaceAndPath(ShinyMod.MODID, "textures/entity/villager/villager.png"));
 
     public VillagerShinyLayer(RenderLayerParent<Villager, VillagerModel<Villager>> renderer) {
         super(renderer);
@@ -24,7 +24,7 @@ public class VillagerShinyLayer extends RenderLayer<Villager, VillagerModel<Vill
     public void render(PoseStack poseStack, MultiBufferSource bufferSource, int packedLightIn, Villager entity, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
         if (!entity.isInvisible()) {
             VertexConsumer vertexconsumer = bufferSource.getBuffer(SHINY);
-            this.getParentModel().renderToBuffer(poseStack, vertexconsumer, 15728640, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
+            this.getParentModel().renderToBuffer(poseStack, vertexconsumer, 15728640, OverlayTexture.NO_OVERLAY);
         }
     }
 }

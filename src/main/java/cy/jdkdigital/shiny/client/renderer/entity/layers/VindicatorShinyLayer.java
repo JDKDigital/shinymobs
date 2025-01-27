@@ -14,7 +14,7 @@ import net.minecraft.world.entity.monster.Vindicator;
 
 public class VindicatorShinyLayer extends RenderLayer<Vindicator, IllagerModel<Vindicator>>
 {
-    private static final RenderType SHINE = RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/illager/vindicator.png"));
+    private static final RenderType SHINE = RenderType.eyes(ResourceLocation.fromNamespaceAndPath(ShinyMod.MODID, "textures/entity/illager/vindicator.png"));
 
     public VindicatorShinyLayer(RenderLayerParent<Vindicator, IllagerModel<Vindicator>> renderer) {
         super(renderer);
@@ -24,7 +24,7 @@ public class VindicatorShinyLayer extends RenderLayer<Vindicator, IllagerModel<V
     public void render(PoseStack poseStack, MultiBufferSource bufferSource, int packedLightIn, Vindicator entity, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
         if (!entity.isInvisible()) {
             VertexConsumer vertexconsumer = bufferSource.getBuffer(SHINE);
-            this.getParentModel().renderToBuffer(poseStack, vertexconsumer, 15728640, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
+            this.getParentModel().renderToBuffer(poseStack, vertexconsumer, 15728640, OverlayTexture.NO_OVERLAY);
         }
     }
 }

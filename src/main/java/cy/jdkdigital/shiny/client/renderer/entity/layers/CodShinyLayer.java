@@ -14,7 +14,7 @@ import net.minecraft.world.entity.animal.Cod;
 
 public class CodShinyLayer extends RenderLayer<Cod, CodModel<Cod>>
 {
-    private static final RenderType SHINE = RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/fish/cod.png"));
+    private static final RenderType SHINE = RenderType.eyes(ResourceLocation.fromNamespaceAndPath(ShinyMod.MODID, "textures/entity/fish/cod.png"));
 
     public CodShinyLayer(RenderLayerParent<Cod, CodModel<Cod>> renderer) {
         super(renderer);
@@ -24,7 +24,7 @@ public class CodShinyLayer extends RenderLayer<Cod, CodModel<Cod>>
     public void render(PoseStack poseStack, MultiBufferSource bufferSource, int packedLightIn, Cod entity, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
         if (!entity.isInvisible()) {
             VertexConsumer vertexconsumer = bufferSource.getBuffer(SHINE);
-            this.getParentModel().renderToBuffer(poseStack, vertexconsumer, 15728640, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
+            this.getParentModel().renderToBuffer(poseStack, vertexconsumer, 15728640, OverlayTexture.NO_OVERLAY);
         }
     }
 }

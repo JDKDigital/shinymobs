@@ -14,7 +14,7 @@ import net.minecraft.world.entity.animal.frog.Tadpole;
 
 public class TadpoleShinyLayer extends RenderLayer<Tadpole, TadpoleModel<Tadpole>>
 {
-    private static final RenderType SHINE = RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/tadpole/tadpole.png"));
+    private static final RenderType SHINE = RenderType.eyes(ResourceLocation.fromNamespaceAndPath(ShinyMod.MODID, "textures/entity/tadpole/tadpole.png"));
 
     public TadpoleShinyLayer(RenderLayerParent<Tadpole, TadpoleModel<Tadpole>> renderer) {
         super(renderer);
@@ -24,7 +24,7 @@ public class TadpoleShinyLayer extends RenderLayer<Tadpole, TadpoleModel<Tadpole
     public void render(PoseStack poseStack, MultiBufferSource bufferSource, int packedLightIn, Tadpole entity, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
         if (!entity.isInvisible()) {
             VertexConsumer vertexconsumer = bufferSource.getBuffer(SHINE);
-            this.getParentModel().renderToBuffer(poseStack, vertexconsumer, 15728640, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
+            this.getParentModel().renderToBuffer(poseStack, vertexconsumer, 15728640, OverlayTexture.NO_OVERLAY);
         }
     }
 }

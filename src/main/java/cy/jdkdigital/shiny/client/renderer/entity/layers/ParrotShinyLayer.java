@@ -19,11 +19,11 @@ public class ParrotShinyLayer extends RenderLayer<Parrot, ParrotModel>
 {
     private static final Map<Parrot.Variant, RenderType> SHINE = new HashMap<>()
     {{
-        put(Parrot.Variant.RED_BLUE, RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/parrot/parrot_red_blue.png")));
-        put(Parrot.Variant.BLUE, RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/parrot/parrot_blue.png")));
-        put(Parrot.Variant.GREEN, RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/parrot/parrot_green.png")));
-        put(Parrot.Variant.YELLOW_BLUE, RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/parrot/parrot_yellow_blue.png")));
-        put(Parrot.Variant.GRAY, RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/parrot/parrot_grey.png")));
+        put(Parrot.Variant.RED_BLUE, RenderType.eyes(ResourceLocation.fromNamespaceAndPath(ShinyMod.MODID, "textures/entity/parrot/parrot_red_blue.png")));
+        put(Parrot.Variant.BLUE, RenderType.eyes(ResourceLocation.fromNamespaceAndPath(ShinyMod.MODID, "textures/entity/parrot/parrot_blue.png")));
+        put(Parrot.Variant.GREEN, RenderType.eyes(ResourceLocation.fromNamespaceAndPath(ShinyMod.MODID, "textures/entity/parrot/parrot_green.png")));
+        put(Parrot.Variant.YELLOW_BLUE, RenderType.eyes(ResourceLocation.fromNamespaceAndPath(ShinyMod.MODID, "textures/entity/parrot/parrot_yellow_blue.png")));
+        put(Parrot.Variant.GRAY, RenderType.eyes(ResourceLocation.fromNamespaceAndPath(ShinyMod.MODID, "textures/entity/parrot/parrot_grey.png")));
     }};
 
     public ParrotShinyLayer(RenderLayerParent<Parrot, ParrotModel> renderer) {
@@ -34,7 +34,7 @@ public class ParrotShinyLayer extends RenderLayer<Parrot, ParrotModel>
     public void render(PoseStack poseStack, MultiBufferSource bufferSource, int packedLightIn, Parrot entity, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
         if (!entity.isInvisible()) {
             VertexConsumer vertexconsumer = bufferSource.getBuffer(SHINE.get(entity.getVariant()));
-            this.getParentModel().renderToBuffer(poseStack, vertexconsumer, 15728640, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
+            this.getParentModel().renderToBuffer(poseStack, vertexconsumer, 15728640, OverlayTexture.NO_OVERLAY);
         }
     }
 }

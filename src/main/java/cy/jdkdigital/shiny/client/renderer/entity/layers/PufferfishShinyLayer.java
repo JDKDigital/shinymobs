@@ -14,7 +14,7 @@ import net.minecraft.world.entity.animal.Pufferfish;
 
 public class PufferfishShinyLayer extends RenderLayer<Pufferfish, EntityModel<Pufferfish>>
 {
-    private static final RenderType SHINE = RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/fish/pufferfish.png"));
+    private static final RenderType SHINE = RenderType.eyes(ResourceLocation.fromNamespaceAndPath(ShinyMod.MODID, "textures/entity/fish/pufferfish.png"));
 
     public PufferfishShinyLayer(RenderLayerParent<Pufferfish, EntityModel<Pufferfish>> renderer) {
         super(renderer);
@@ -24,7 +24,7 @@ public class PufferfishShinyLayer extends RenderLayer<Pufferfish, EntityModel<Pu
     public void render(PoseStack poseStack, MultiBufferSource bufferSource, int packedLightIn, Pufferfish entity, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
         if (!entity.isInvisible()) {
             VertexConsumer vertexconsumer = bufferSource.getBuffer(SHINE);
-            this.getParentModel().renderToBuffer(poseStack, vertexconsumer, 15728640, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
+            this.getParentModel().renderToBuffer(poseStack, vertexconsumer, 15728640, OverlayTexture.NO_OVERLAY);
         }
     }
 }

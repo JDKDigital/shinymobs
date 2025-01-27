@@ -14,7 +14,7 @@ import net.minecraft.world.entity.monster.Pillager;
 
 public class PillagerShinyLayer extends RenderLayer<Pillager, IllagerModel<Pillager>>
 {
-    private static final RenderType SHINE = RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/illager/pillager.png"));
+    private static final RenderType SHINE = RenderType.eyes(ResourceLocation.fromNamespaceAndPath(ShinyMod.MODID, "textures/entity/illager/pillager.png"));
 
     public PillagerShinyLayer(RenderLayerParent<Pillager, IllagerModel<Pillager>> renderer) {
         super(renderer);
@@ -24,7 +24,7 @@ public class PillagerShinyLayer extends RenderLayer<Pillager, IllagerModel<Pilla
     public void render(PoseStack poseStack, MultiBufferSource bufferSource, int packedLightIn, Pillager entity, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
         if (!entity.isInvisible()) {
             VertexConsumer vertexconsumer = bufferSource.getBuffer(SHINE);
-            this.getParentModel().renderToBuffer(poseStack, vertexconsumer, 15728640, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
+            this.getParentModel().renderToBuffer(poseStack, vertexconsumer, 15728640, OverlayTexture.NO_OVERLAY);
         }
     }
 }

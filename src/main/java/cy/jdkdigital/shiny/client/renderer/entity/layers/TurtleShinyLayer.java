@@ -14,7 +14,7 @@ import net.minecraft.world.entity.animal.Turtle;
 
 public class TurtleShinyLayer extends RenderLayer<Turtle, TurtleModel<Turtle>>
 {
-    private static final RenderType SHINE = RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/turtle/big_sea_turtle.png"));
+    private static final RenderType SHINE = RenderType.eyes(ResourceLocation.fromNamespaceAndPath(ShinyMod.MODID, "textures/entity/turtle/big_sea_turtle.png"));
 
     public TurtleShinyLayer(RenderLayerParent<Turtle, TurtleModel<Turtle>> renderer) {
         super(renderer);
@@ -24,7 +24,7 @@ public class TurtleShinyLayer extends RenderLayer<Turtle, TurtleModel<Turtle>>
     public void render(PoseStack poseStack, MultiBufferSource bufferSource, int packedLightIn, Turtle entity, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
         if (!entity.isInvisible()) {
             VertexConsumer vertexconsumer = bufferSource.getBuffer(SHINE);
-            this.getParentModel().renderToBuffer(poseStack, vertexconsumer, 15728640, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
+            this.getParentModel().renderToBuffer(poseStack, vertexconsumer, 15728640, OverlayTexture.NO_OVERLAY);
         }
     }
 }

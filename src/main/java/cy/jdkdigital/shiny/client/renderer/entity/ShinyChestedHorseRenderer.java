@@ -17,8 +17,8 @@ import java.util.Map;
 public class ShinyChestedHorseRenderer<T extends AbstractChestedHorse> extends AbstractHorseRenderer<T, ChestedHorseModel<T>>
 {
     private static final Map<EntityType<?>, ResourceLocation> MAP = ImmutableMap.of(
-        ModEntities.DONKEY.get(), new ResourceLocation("textures/entity/horse/donkey.png"),
-        ModEntities.MULE.get(), new ResourceLocation("textures/entity/horse/mule.png")
+        ModEntities.DONKEY.get(), ResourceLocation.withDefaultNamespace("textures/entity/horse/donkey.png"),
+        ModEntities.MULE.get(), ResourceLocation.withDefaultNamespace("textures/entity/horse/mule.png")
     );
 
     public ShinyChestedHorseRenderer(EntityRendererProvider.Context context, float size, ModelLayerLocation model) {

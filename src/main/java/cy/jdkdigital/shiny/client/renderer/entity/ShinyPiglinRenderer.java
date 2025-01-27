@@ -16,9 +16,9 @@ import java.util.Map;
 public class ShinyPiglinRenderer extends PiglinRenderer
 {
     private static final Map<EntityType<?>, ResourceLocation> TEXTURES = ImmutableMap.of(
-        ModEntities.PIGLIN.get(), new ResourceLocation("textures/entity/piglin/piglin.png"),
-        ModEntities.ZOMBIFIED_PIGLIN.get(), new ResourceLocation("textures/entity/piglin/zombified_piglin.png"),
-        ModEntities.PIGLIN_BRUTE.get(), new ResourceLocation("textures/entity/piglin/piglin_brute.png")
+        ModEntities.PIGLIN.get(), ResourceLocation.withDefaultNamespace("textures/entity/piglin/piglin.png"),
+        ModEntities.ZOMBIFIED_PIGLIN.get(), ResourceLocation.withDefaultNamespace("textures/entity/piglin/zombified_piglin.png"),
+        ModEntities.PIGLIN_BRUTE.get(), ResourceLocation.withDefaultNamespace("textures/entity/piglin/piglin_brute.png")
     );
 
     public ShinyPiglinRenderer(EntityRendererProvider.Context context, ModelLayerLocation body, ModelLayerLocation innerArmor, ModelLayerLocation outerArmor, boolean isZombie) {

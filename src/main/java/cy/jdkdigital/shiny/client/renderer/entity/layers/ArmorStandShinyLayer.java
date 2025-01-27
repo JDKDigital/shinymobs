@@ -14,7 +14,7 @@ import net.minecraft.world.entity.decoration.ArmorStand;
 
 public class ArmorStandShinyLayer extends RenderLayer<ArmorStand, ArmorStandArmorModel>
 {
-    private static final RenderType SHINE = RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/armorstand/wood.png"));
+    private static final RenderType SHINE = RenderType.eyes(ResourceLocation.fromNamespaceAndPath(ShinyMod.MODID, "textures/entity/armorstand/wood.png"));
 
     public ArmorStandShinyLayer(RenderLayerParent<ArmorStand, ArmorStandArmorModel> renderer) {
         super(renderer);
@@ -24,7 +24,7 @@ public class ArmorStandShinyLayer extends RenderLayer<ArmorStand, ArmorStandArmo
     public void render(PoseStack poseStack, MultiBufferSource bufferSource, int packedLightIn, ArmorStand entity, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
         if (!entity.isInvisible()) {
             VertexConsumer vertexconsumer = bufferSource.getBuffer(SHINE);
-            this.getParentModel().renderToBuffer(poseStack, vertexconsumer, 15728640, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
+            this.getParentModel().renderToBuffer(poseStack, vertexconsumer, 15728640, OverlayTexture.NO_OVERLAY);
         }
     }
 }

@@ -14,10 +14,10 @@ import net.minecraft.world.entity.animal.Fox;
 
 public class FoxShinyLayer extends RenderLayer<Fox, FoxModel<Fox>>
 {
-    private static final RenderType RED_FOX_TEXTURE = RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/fox/fox.png"));
-    private static final RenderType RED_FOX_SLEEP_TEXTURE = RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/fox/fox_sleep.png"));
-    private static final RenderType SNOW_FOX_TEXTURE = RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/fox/snow_fox.png"));
-    private static final RenderType SNOW_FOX_SLEEP_TEXTURE = RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/fox/snow_fox_sleep.png"));
+    private static final RenderType RED_FOX_TEXTURE = RenderType.eyes(ResourceLocation.fromNamespaceAndPath(ShinyMod.MODID, "textures/entity/fox/fox.png"));
+    private static final RenderType RED_FOX_SLEEP_TEXTURE = RenderType.eyes(ResourceLocation.fromNamespaceAndPath(ShinyMod.MODID, "textures/entity/fox/fox_sleep.png"));
+    private static final RenderType SNOW_FOX_TEXTURE = RenderType.eyes(ResourceLocation.fromNamespaceAndPath(ShinyMod.MODID, "textures/entity/fox/snow_fox.png"));
+    private static final RenderType SNOW_FOX_SLEEP_TEXTURE = RenderType.eyes(ResourceLocation.fromNamespaceAndPath(ShinyMod.MODID, "textures/entity/fox/snow_fox_sleep.png"));
 
     public FoxShinyLayer(RenderLayerParent<Fox, FoxModel<Fox>> renderer) {
         super(renderer);
@@ -30,7 +30,7 @@ public class FoxShinyLayer extends RenderLayer<Fox, FoxModel<Fox>>
             if (entity.getVariant() == Fox.Type.RED) {
                 vertexconsumer = bufferSource.getBuffer(entity.isSleeping() ? RED_FOX_SLEEP_TEXTURE : RED_FOX_TEXTURE);
             }
-            this.getParentModel().renderToBuffer(poseStack, vertexconsumer, 15728640, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
+            this.getParentModel().renderToBuffer(poseStack, vertexconsumer, 15728640, OverlayTexture.NO_OVERLAY);
         }
     }
 }

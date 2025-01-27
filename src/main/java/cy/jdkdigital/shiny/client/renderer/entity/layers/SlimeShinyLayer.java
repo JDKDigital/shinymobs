@@ -18,7 +18,7 @@ import net.minecraft.world.entity.monster.Slime;
 public class SlimeShinyLayer extends RenderLayer<Slime, SlimeModel<Slime>>
 {
     private final EntityModel<Slime> model;
-    private static final RenderType SHINY = RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/slime/slime.png"));
+    private static final RenderType SHINY = RenderType.eyes(ResourceLocation.fromNamespaceAndPath(ShinyMod.MODID, "textures/entity/slime/slime.png"));
 
     public SlimeShinyLayer(RenderLayerParent<Slime, SlimeModel<Slime>> renderer, EntityModelSet modelSet) {
         super(renderer);
@@ -32,7 +32,7 @@ public class SlimeShinyLayer extends RenderLayer<Slime, SlimeModel<Slime>>
             this.getParentModel().copyPropertiesTo(this.model);
             this.model.prepareMobModel(entity, limbSwing, limbSwingAmount, partialTicks);
             this.model.setupAnim(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch);
-            this.model.renderToBuffer(poseStack, vertexconsumer, packedLightIn, LivingEntityRenderer.getOverlayCoords(entity, 0.0F), 1.0F, 1.0F, 1.0F, 1.0F);
+            this.model.renderToBuffer(poseStack, vertexconsumer, packedLightIn, LivingEntityRenderer.getOverlayCoords(entity, 0.0F));
         }
     }
 }

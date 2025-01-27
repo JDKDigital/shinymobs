@@ -20,7 +20,7 @@ public class AxolotlShinyLayer extends RenderLayer<Axolotl, AxolotlModel<Axolotl
 {
     private static final Map<Axolotl.Variant, RenderType> SHINE = Util.make(Maps.newHashMap(), (map) -> {
         for(Axolotl.Variant axolotl$variant : Axolotl.Variant.values()) {
-            map.put(axolotl$variant, RenderType.eyes(new ResourceLocation(ShinyMod.MODID, String.format("textures/entity/axolotl/axolotl_%s.png", axolotl$variant.getName()))));
+            map.put(axolotl$variant, RenderType.eyes(ResourceLocation.fromNamespaceAndPath(ShinyMod.MODID, String.format("textures/entity/axolotl/axolotl_%s.png", axolotl$variant.getName()))));
         }
     });
 
@@ -32,7 +32,7 @@ public class AxolotlShinyLayer extends RenderLayer<Axolotl, AxolotlModel<Axolotl
     public void render(PoseStack poseStack, MultiBufferSource bufferSource, int packedLightIn, Axolotl entity, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
         if (!entity.isInvisible()) {
             VertexConsumer vertexconsumer = bufferSource.getBuffer(SHINE.get(entity.getVariant()));
-            this.getParentModel().renderToBuffer(poseStack, vertexconsumer, 15728640, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
+            this.getParentModel().renderToBuffer(poseStack, vertexconsumer, 15728640, OverlayTexture.NO_OVERLAY);
         }
     }
 }

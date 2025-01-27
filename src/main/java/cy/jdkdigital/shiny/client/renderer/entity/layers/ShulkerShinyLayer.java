@@ -15,8 +15,8 @@ import net.minecraft.world.entity.monster.Shulker;
 
 public class ShulkerShinyLayer extends RenderLayer<Shulker, ShulkerModel<Shulker>>
 {
-    private static final RenderType SHINE = RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/" + Sheets.DEFAULT_SHULKER_TEXTURE_LOCATION.texture().getPath() + ".png"));
-    private static final RenderType[] SHINE_COLOR = Sheets.SHULKER_TEXTURE_LOCATION.stream().map((material) -> RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/" + material.texture().getPath() + ".png"))).toArray(RenderType[]::new);
+    private static final RenderType SHINE = RenderType.eyes(ResourceLocation.fromNamespaceAndPath(ShinyMod.MODID, "textures/" + Sheets.DEFAULT_SHULKER_TEXTURE_LOCATION.texture().getPath() + ".png"));
+    private static final RenderType[] SHINE_COLOR = Sheets.SHULKER_TEXTURE_LOCATION.stream().map((material) -> RenderType.eyes(ResourceLocation.fromNamespaceAndPath(ShinyMod.MODID, "textures/" + material.texture().getPath() + ".png"))).toArray(RenderType[]::new);
 
     public ShulkerShinyLayer(RenderLayerParent<Shulker, ShulkerModel<Shulker>> renderer) {
         super(renderer);
@@ -26,7 +26,7 @@ public class ShulkerShinyLayer extends RenderLayer<Shulker, ShulkerModel<Shulker
     public void render(PoseStack poseStack, MultiBufferSource bufferSource, int packedLightIn, Shulker entity, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
         if (!entity.isInvisible()) {
             VertexConsumer vertexconsumer = bufferSource.getBuffer(entity.getColor() != null ? SHINE_COLOR[entity.getColor().getId()] : SHINE);
-            this.getParentModel().renderToBuffer(poseStack, vertexconsumer, 15728640, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
+            this.getParentModel().renderToBuffer(poseStack, vertexconsumer, 15728640, OverlayTexture.NO_OVERLAY);
         }
     }
 }

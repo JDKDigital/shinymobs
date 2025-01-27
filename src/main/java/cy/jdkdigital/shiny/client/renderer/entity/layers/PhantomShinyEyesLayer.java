@@ -10,7 +10,7 @@ import net.minecraft.world.entity.monster.Phantom;
 
 public class PhantomShinyEyesLayer<T extends Phantom> extends EyesLayer<T, PhantomModel<T>>
 {
-    private static final RenderType PHANTOM_EYES = RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/phantom_eyes.png"));
+    private static final RenderType PHANTOM_EYES = RenderType.eyes(ResourceLocation.fromNamespaceAndPath(ShinyMod.MODID, "textures/entity/phantom_eyes.png"));
 
     public PhantomShinyEyesLayer(RenderLayerParent<T, PhantomModel<T>> p_117342_) {
         super(p_117342_);

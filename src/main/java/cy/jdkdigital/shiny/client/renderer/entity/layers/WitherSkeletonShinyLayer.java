@@ -11,20 +11,21 @@ import net.minecraft.client.renderer.entity.layers.RenderLayer;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.monster.AbstractSkeleton;
+import net.minecraft.world.entity.monster.WitherSkeleton;
 
-public class WitherSkeletonShinyLayer extends RenderLayer<AbstractSkeleton, SkeletonModel<AbstractSkeleton>>
+public class WitherSkeletonShinyLayer extends RenderLayer<WitherSkeleton, SkeletonModel<WitherSkeleton>>
 {
-    private static final RenderType SHINE = RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/skeleton/wither_skeleton.png"));
+    private static final RenderType SHINE = RenderType.eyes(ResourceLocation.fromNamespaceAndPath(ShinyMod.MODID, "textures/entity/skeleton/wither_skeleton.png"));
 
-    public WitherSkeletonShinyLayer(RenderLayerParent<AbstractSkeleton, SkeletonModel<AbstractSkeleton>> renderer) {
+    public WitherSkeletonShinyLayer(RenderLayerParent<WitherSkeleton, SkeletonModel<WitherSkeleton>> renderer) {
         super(renderer);
     }
 
     @Override
-    public void render(PoseStack poseStack, MultiBufferSource bufferSource, int packedLightIn, AbstractSkeleton entity, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
+    public void render(PoseStack poseStack, MultiBufferSource bufferSource, int packedLightIn, WitherSkeleton entity, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
         if (!entity.isInvisible()) {
             VertexConsumer vertexconsumer = bufferSource.getBuffer(SHINE);
-            this.getParentModel().renderToBuffer(poseStack, vertexconsumer, 15728640, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
+            this.getParentModel().renderToBuffer(poseStack, vertexconsumer, 15728640, OverlayTexture.NO_OVERLAY);
         }
     }
 }

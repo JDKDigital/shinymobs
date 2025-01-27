@@ -20,8 +20,8 @@ import java.util.Map;
 public class ChestedHorseShinyLayer<T extends AbstractChestedHorse> extends RenderLayer<T, ChestedHorseModel<T>>
 {
     private static final Map<EntityType<?>, RenderType> SHINE = ImmutableMap.of(
-        ModEntities.DONKEY.get(), RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/horse/donkey.png")),
-        ModEntities.MULE.get(), RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/horse/mule.png"))
+        ModEntities.DONKEY.get(), RenderType.eyes(ResourceLocation.fromNamespaceAndPath(ShinyMod.MODID, "textures/entity/horse/donkey.png")),
+        ModEntities.MULE.get(), RenderType.eyes(ResourceLocation.fromNamespaceAndPath(ShinyMod.MODID, "textures/entity/horse/mule.png"))
     );
 
     public ChestedHorseShinyLayer(RenderLayerParent<T, ChestedHorseModel<T>> renderer) {
@@ -32,7 +32,7 @@ public class ChestedHorseShinyLayer<T extends AbstractChestedHorse> extends Rend
     public void render(PoseStack poseStack, MultiBufferSource bufferSource, int packedLightIn, T entity, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
         if (!entity.isInvisible()) {
             VertexConsumer vertexconsumer = bufferSource.getBuffer(SHINE.get(entity.getType()));
-            this.getParentModel().renderToBuffer(poseStack, vertexconsumer, 15728640, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
+            this.getParentModel().renderToBuffer(poseStack, vertexconsumer, 15728640, OverlayTexture.NO_OVERLAY);
         }
     }
 }

@@ -14,7 +14,7 @@ import net.minecraft.world.entity.animal.Pig;
 
 public class PigShinyLayer extends RenderLayer<Pig, PigModel<Pig>>
 {
-    private static final RenderType SHINE = RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/pig/pig.png"));
+    private static final RenderType SHINE = RenderType.eyes(ResourceLocation.fromNamespaceAndPath(ShinyMod.MODID, "textures/entity/pig/pig.png"));
 
     public PigShinyLayer(RenderLayerParent<Pig, PigModel<Pig>> renderer) {
         super(renderer);
@@ -24,7 +24,7 @@ public class PigShinyLayer extends RenderLayer<Pig, PigModel<Pig>>
     public void render(PoseStack poseStack, MultiBufferSource bufferSource, int packedLightIn, Pig entity, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
         if (!entity.isInvisible()) {
             VertexConsumer vertexconsumer = bufferSource.getBuffer(SHINE);
-            this.getParentModel().renderToBuffer(poseStack, vertexconsumer, 15728640, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
+            this.getParentModel().renderToBuffer(poseStack, vertexconsumer, 15728640, OverlayTexture.NO_OVERLAY);
         }
     }
 }

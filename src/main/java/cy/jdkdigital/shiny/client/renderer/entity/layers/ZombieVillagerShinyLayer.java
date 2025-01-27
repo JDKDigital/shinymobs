@@ -14,7 +14,7 @@ import net.minecraft.world.entity.monster.ZombieVillager;
 
 public class ZombieVillagerShinyLayer extends RenderLayer<ZombieVillager, ZombieVillagerModel<ZombieVillager>>
 {
-    private static final RenderType SHINY = RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/zombie_villager/zombie_villager.png"));
+    private static final RenderType SHINY = RenderType.eyes(ResourceLocation.fromNamespaceAndPath(ShinyMod.MODID, "textures/entity/zombie_villager/zombie_villager.png"));
 
     public ZombieVillagerShinyLayer(RenderLayerParent<ZombieVillager, ZombieVillagerModel<ZombieVillager>> renderer) {
         super(renderer);
@@ -24,7 +24,7 @@ public class ZombieVillagerShinyLayer extends RenderLayer<ZombieVillager, Zombie
     public void render(PoseStack poseStack, MultiBufferSource bufferSource, int packedLightIn, ZombieVillager entity, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
         if (!entity.isInvisible()) {
             VertexConsumer vertexconsumer = bufferSource.getBuffer(SHINY);
-            this.getParentModel().renderToBuffer(poseStack, vertexconsumer, 15728640, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
+            this.getParentModel().renderToBuffer(poseStack, vertexconsumer, 15728640, OverlayTexture.NO_OVERLAY);
         }
     }
 }

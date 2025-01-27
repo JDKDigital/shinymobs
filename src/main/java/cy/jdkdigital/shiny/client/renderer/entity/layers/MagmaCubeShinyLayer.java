@@ -14,7 +14,7 @@ import net.minecraft.world.entity.monster.MagmaCube;
 
 public class MagmaCubeShinyLayer extends RenderLayer<MagmaCube, LavaSlimeModel<MagmaCube>>
 {
-    private static final RenderType SHINY = RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/slime/magmacube.png"));
+    private static final RenderType SHINY = RenderType.eyes(ResourceLocation.fromNamespaceAndPath(ShinyMod.MODID, "textures/entity/slime/magmacube.png"));
 
     public MagmaCubeShinyLayer(RenderLayerParent<MagmaCube, LavaSlimeModel<MagmaCube>> renderer) {
         super(renderer);
@@ -24,7 +24,7 @@ public class MagmaCubeShinyLayer extends RenderLayer<MagmaCube, LavaSlimeModel<M
     public void render(PoseStack poseStack, MultiBufferSource bufferSource, int packedLightIn, MagmaCube entity, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
         if (!entity.isInvisible()) {
             VertexConsumer vertexconsumer = bufferSource.getBuffer(SHINY);
-            this.getParentModel().renderToBuffer(poseStack, vertexconsumer, 15728640, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
+            this.getParentModel().renderToBuffer(poseStack, vertexconsumer, 15728640, OverlayTexture.NO_OVERLAY);
         }
     }
 }

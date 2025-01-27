@@ -15,14 +15,14 @@ import net.minecraft.world.entity.animal.Rabbit;
 
 public class RabbitShinyLayer extends RenderLayer<Rabbit, RabbitModel<Rabbit>>
 {
-    private static final RenderType RABBIT_BROWN_LOCATION = RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/rabbit/brown.png"));
-    private static final RenderType RABBIT_WHITE_LOCATION = RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/rabbit/white.png"));
-    private static final RenderType RABBIT_BLACK_LOCATION = RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/rabbit/black.png"));
-    private static final RenderType RABBIT_GOLD_LOCATION = RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/rabbit/gold.png"));
-    private static final RenderType RABBIT_SALT_LOCATION = RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/rabbit/salt.png"));
-    private static final RenderType RABBIT_WHITE_SPLOTCHED_LOCATION = RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/rabbit/white_splotched.png"));
-    private static final RenderType RABBIT_TOAST_LOCATION = RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/rabbit/toast.png"));
-    private static final RenderType RABBIT_EVIL_LOCATION = RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/rabbit/caerbannog.png"));
+    private static final RenderType RABBIT_BROWN_LOCATION = RenderType.eyes(ResourceLocation.fromNamespaceAndPath(ShinyMod.MODID, "textures/entity/rabbit/brown.png"));
+    private static final RenderType RABBIT_WHITE_LOCATION = RenderType.eyes(ResourceLocation.fromNamespaceAndPath(ShinyMod.MODID, "textures/entity/rabbit/white.png"));
+    private static final RenderType RABBIT_BLACK_LOCATION = RenderType.eyes(ResourceLocation.fromNamespaceAndPath(ShinyMod.MODID, "textures/entity/rabbit/black.png"));
+    private static final RenderType RABBIT_GOLD_LOCATION = RenderType.eyes(ResourceLocation.fromNamespaceAndPath(ShinyMod.MODID, "textures/entity/rabbit/gold.png"));
+    private static final RenderType RABBIT_SALT_LOCATION = RenderType.eyes(ResourceLocation.fromNamespaceAndPath(ShinyMod.MODID, "textures/entity/rabbit/salt.png"));
+    private static final RenderType RABBIT_WHITE_SPLOTCHED_LOCATION = RenderType.eyes(ResourceLocation.fromNamespaceAndPath(ShinyMod.MODID, "textures/entity/rabbit/white_splotched.png"));
+    private static final RenderType RABBIT_TOAST_LOCATION = RenderType.eyes(ResourceLocation.fromNamespaceAndPath(ShinyMod.MODID, "textures/entity/rabbit/toast.png"));
+    private static final RenderType RABBIT_EVIL_LOCATION = RenderType.eyes(ResourceLocation.fromNamespaceAndPath(ShinyMod.MODID, "textures/entity/rabbit/caerbannog.png"));
 
     public RabbitShinyLayer(RenderLayerParent<Rabbit, RabbitModel<Rabbit>> renderer) {
         super(renderer);
@@ -48,7 +48,7 @@ public class RabbitShinyLayer extends RenderLayer<Rabbit, RabbitModel<Rabbit>>
                 };
             }
 
-            this.getParentModel().renderToBuffer(poseStack, vertexconsumer, 15728640, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
+            this.getParentModel().renderToBuffer(poseStack, vertexconsumer, 15728640, OverlayTexture.NO_OVERLAY);
         }
     }
 }

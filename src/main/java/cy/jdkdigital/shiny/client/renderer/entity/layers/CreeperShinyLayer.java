@@ -14,7 +14,7 @@ import net.minecraft.world.entity.monster.Creeper;
 
 public class CreeperShinyLayer extends RenderLayer<Creeper, CreeperModel<Creeper>>
 {
-    private static final RenderType SHINE = RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/creeper/creeper.png"));
+    private static final RenderType SHINE = RenderType.eyes(ResourceLocation.fromNamespaceAndPath(ShinyMod.MODID, "textures/entity/creeper/creeper.png"));
 
     public CreeperShinyLayer(RenderLayerParent<Creeper, CreeperModel<Creeper>> model) {
         super(model);
@@ -24,7 +24,7 @@ public class CreeperShinyLayer extends RenderLayer<Creeper, CreeperModel<Creeper
     public void render(PoseStack poseStack, MultiBufferSource bufferSource, int packedLightIn, Creeper entity, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
         if (!entity.isInvisible()) {
             VertexConsumer vertexconsumer = bufferSource.getBuffer(SHINE);
-            this.getParentModel().renderToBuffer(poseStack, vertexconsumer, 15728640, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
+            this.getParentModel().renderToBuffer(poseStack, vertexconsumer, 15728640, OverlayTexture.NO_OVERLAY);
         }
     }
 }

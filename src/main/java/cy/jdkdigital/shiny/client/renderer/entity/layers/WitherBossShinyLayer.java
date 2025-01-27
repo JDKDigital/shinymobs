@@ -14,7 +14,7 @@ import net.minecraft.world.entity.boss.wither.WitherBoss;
 
 public class WitherBossShinyLayer extends RenderLayer<WitherBoss, WitherBossModel<WitherBoss>>
 {
-    private static final RenderType SHINE = RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/wither/wither.png"));
+    private static final RenderType SHINE = RenderType.eyes(ResourceLocation.fromNamespaceAndPath(ShinyMod.MODID, "textures/entity/wither/wither.png"));
 
     public WitherBossShinyLayer(RenderLayerParent<WitherBoss, WitherBossModel<WitherBoss>> renderer) {
         super(renderer);
@@ -24,7 +24,7 @@ public class WitherBossShinyLayer extends RenderLayer<WitherBoss, WitherBossMode
     public void render(PoseStack poseStack, MultiBufferSource bufferSource, int packedLightIn, WitherBoss entity, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
         if (!entity.isInvisible()) {
             VertexConsumer vertexconsumer = bufferSource.getBuffer(SHINE);
-            this.getParentModel().renderToBuffer(poseStack, vertexconsumer, 15728640, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
+            this.getParentModel().renderToBuffer(poseStack, vertexconsumer, 15728640, OverlayTexture.NO_OVERLAY);
         }
     }
 }

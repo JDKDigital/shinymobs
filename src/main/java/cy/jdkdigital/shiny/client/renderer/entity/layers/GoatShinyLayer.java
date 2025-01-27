@@ -14,7 +14,7 @@ import net.minecraft.world.entity.animal.goat.Goat;
 
 public class GoatShinyLayer extends RenderLayer<Goat, GoatModel<Goat>>
 {
-    private static final RenderType SHINY = RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/goat/goat.png"));
+    private static final RenderType SHINY = RenderType.eyes(ResourceLocation.fromNamespaceAndPath(ShinyMod.MODID, "textures/entity/goat/goat.png"));
 
     public GoatShinyLayer(RenderLayerParent<Goat, GoatModel<Goat>> renderer) {
         super(renderer);
@@ -24,7 +24,7 @@ public class GoatShinyLayer extends RenderLayer<Goat, GoatModel<Goat>>
     public void render(PoseStack poseStack, MultiBufferSource bufferSource, int packedLightIn, Goat entity, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
         if (!entity.isInvisible()) {
             VertexConsumer vertexconsumer = bufferSource.getBuffer(SHINY);
-            this.getParentModel().renderToBuffer(poseStack, vertexconsumer, 15728640, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
+            this.getParentModel().renderToBuffer(poseStack, vertexconsumer, 15728640, OverlayTexture.NO_OVERLAY);
         }
     }
 }

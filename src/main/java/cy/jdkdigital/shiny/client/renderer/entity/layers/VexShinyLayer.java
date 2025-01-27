@@ -14,8 +14,8 @@ import net.minecraft.world.entity.monster.Vex;
 
 public class VexShinyLayer extends RenderLayer<Vex, VexModel>
 {
-    private static final RenderType SHINE = RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/illager/vex.png"));
-    private static final RenderType SHINE_CHARGING = RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/illager/vex_charging.png"));
+    private static final RenderType SHINE = RenderType.eyes(ResourceLocation.fromNamespaceAndPath(ShinyMod.MODID, "textures/entity/illager/vex.png"));
+    private static final RenderType SHINE_CHARGING = RenderType.eyes(ResourceLocation.fromNamespaceAndPath(ShinyMod.MODID, "textures/entity/illager/vex_charging.png"));
 
     public VexShinyLayer(RenderLayerParent<Vex, VexModel> renderer) {
         super(renderer);
@@ -25,7 +25,7 @@ public class VexShinyLayer extends RenderLayer<Vex, VexModel>
     public void render(PoseStack poseStack, MultiBufferSource bufferSource, int packedLightIn, Vex entity, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
         if (!entity.isInvisible()) {
             VertexConsumer vertexconsumer = bufferSource.getBuffer(entity.isCharging() ? SHINE_CHARGING : SHINE);
-            this.getParentModel().renderToBuffer(poseStack, vertexconsumer, 15728640, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
+            this.getParentModel().renderToBuffer(poseStack, vertexconsumer, 15728640, OverlayTexture.NO_OVERLAY);
         }
     }
 }

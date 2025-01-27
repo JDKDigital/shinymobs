@@ -2,7 +2,7 @@ package cy.jdkdigital.shiny.compat;
 
 import cy.jdkdigital.trophymanager.common.block.TrophyBlock;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
+import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 
 public class TrophyCompat
 {

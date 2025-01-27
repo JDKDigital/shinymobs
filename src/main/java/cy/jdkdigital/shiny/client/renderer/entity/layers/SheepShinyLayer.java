@@ -14,7 +14,7 @@ import net.minecraft.world.entity.animal.Sheep;
 
 public class SheepShinyLayer extends RenderLayer<Sheep, SheepModel<Sheep>>
 {
-    private static final RenderType SHINE = RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/sheep/sheep.png"));
+    private static final RenderType SHINE = RenderType.eyes(ResourceLocation.fromNamespaceAndPath(ShinyMod.MODID, "textures/entity/sheep/sheep.png"));
 
     public SheepShinyLayer(RenderLayerParent<Sheep, SheepModel<Sheep>> renderer) {
         super(renderer);
@@ -24,7 +24,7 @@ public class SheepShinyLayer extends RenderLayer<Sheep, SheepModel<Sheep>>
     public void render(PoseStack poseStack, MultiBufferSource bufferSource, int packedLightIn, Sheep entity, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
         if (!entity.isInvisible()) {
             VertexConsumer vertexconsumer = bufferSource.getBuffer(SHINE);
-            this.getParentModel().renderToBuffer(poseStack, vertexconsumer, 15728640, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
+            this.getParentModel().renderToBuffer(poseStack, vertexconsumer, 15728640, OverlayTexture.NO_OVERLAY);
         }
     }
 }

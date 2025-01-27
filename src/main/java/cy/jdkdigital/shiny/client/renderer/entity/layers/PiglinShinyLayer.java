@@ -20,9 +20,9 @@ import java.util.Map;
 public class PiglinShinyLayer extends RenderLayer<Mob, PiglinModel<Mob>>
 {
     private static final Map<EntityType<?>, RenderType> SHINE = ImmutableMap.of(
-            ModEntities.PIGLIN.get(), RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/piglin/piglin.png")),
-            ModEntities.ZOMBIFIED_PIGLIN.get(), RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/piglin/zombified_piglin.png")),
-            ModEntities.PIGLIN_BRUTE.get(), RenderType.eyes(new ResourceLocation(ShinyMod.MODID, "textures/entity/piglin/piglin_brute.png"))
+            ModEntities.PIGLIN.get(), RenderType.eyes(ResourceLocation.fromNamespaceAndPath(ShinyMod.MODID, "textures/entity/piglin/piglin.png")),
+            ModEntities.ZOMBIFIED_PIGLIN.get(), RenderType.eyes(ResourceLocation.fromNamespaceAndPath(ShinyMod.MODID, "textures/entity/piglin/zombified_piglin.png")),
+            ModEntities.PIGLIN_BRUTE.get(), RenderType.eyes(ResourceLocation.fromNamespaceAndPath(ShinyMod.MODID, "textures/entity/piglin/piglin_brute.png"))
     );
 
     public PiglinShinyLayer(RenderLayerParent<Mob, PiglinModel<Mob>> renderer) {
@@ -33,7 +33,7 @@ public class PiglinShinyLayer extends RenderLayer<Mob, PiglinModel<Mob>>
     public void render(PoseStack poseStack, MultiBufferSource bufferSource, int packedLightIn, Mob entity, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
         if (!entity.isInvisible()) {
             VertexConsumer vertexconsumer = bufferSource.getBuffer(SHINE.get(entity.getType()));
-            this.getParentModel().renderToBuffer(poseStack, vertexconsumer, 15728640, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
+            this.getParentModel().renderToBuffer(poseStack, vertexconsumer, 15728640, OverlayTexture.NO_OVERLAY);
         }
     }
 }
