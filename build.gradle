@@ -128,7 +128,8 @@ dependencies {
     runtimeOnly "mezz.jei:jei-${minecraft_version}-neoforge:${jei_version}"
 
     implementation "curse.maven:jade-324717:5884231"
-    implementation "curse.maven:jonns-trophies-510170:5645346"
+    implementation "curse.maven:jonns-trophies-510170:6600581"
+    implementation "curse.maven:living-things-397252:6672681"
 }
 
 tasks.withType(ProcessResources).configureEach {

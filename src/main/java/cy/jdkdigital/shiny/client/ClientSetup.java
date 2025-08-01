@@ -15,11 +15,14 @@ public class ClientSetup
 {
     @SubscribeEvent
     public static void registerEntityRendering(EntityRenderersEvent.RegisterRenderers event) {
+        event.registerEntityRenderer(ModEntities.ARMADILLO.get(), ShinyArmadilloRenderer::new);
         event.registerEntityRenderer(ModEntities.ARMOR_STAND.get(), ShinyArmorStandRenderer::new);
         event.registerEntityRenderer(ModEntities.AXOLOTL.get(), ShinyAxolotlRenderer::new);
         event.registerEntityRenderer(ModEntities.BAT.get(), ShinyBatRenderer::new);
         event.registerEntityRenderer(ModEntities.BEE.get(), ShinyBeeRenderer::new);
         event.registerEntityRenderer(ModEntities.BLAZE.get(), ShinyBlazeRenderer::new);
+        event.registerEntityRenderer(ModEntities.BOGGED.get(), ShinyBoggedRenderer::new);
+        event.registerEntityRenderer(ModEntities.BREEZE.get(), ShinyBreezeRenderer::new);
         event.registerEntityRenderer(ModEntities.CAT.get(), ShinyCatRenderer::new);
         event.registerEntityRenderer(ModEntities.CAVE_SPIDER.get(), ShinyCaveSpiderRenderer::new);
         event.registerEntityRenderer(ModEntities.CHICKEN.get(), ShinyChickenRenderer::new);
@@ -92,5 +95,6 @@ public class ClientSetup
         event.registerEntityRenderer(ModEntities.FROG.get(), ShinyFrogRenderer::new);
         event.registerEntityRenderer(ModEntities.ALLAY.get(), ShinyAllayRenderer::new);
         event.registerEntityRenderer(ModEntities.CAMEL.get(), (context) -> new ShinyCamelRenderer(context, ModelLayers.CAMEL));
+        event.registerEntityRenderer(ModEntities.SNIFFER.get(), ShinySnifferRenderer::new);
     }
 }

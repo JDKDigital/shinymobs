@@ -10,21 +10,23 @@ import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.entity.ambient.Bat;
 import net.minecraft.world.entity.animal.*;
 import net.minecraft.world.entity.animal.allay.Allay;
+import net.minecraft.world.entity.animal.armadillo.Armadillo;
 import net.minecraft.world.entity.animal.camel.Camel;
 import net.minecraft.world.entity.animal.frog.Frog;
 import net.minecraft.world.entity.animal.frog.Tadpole;
 import net.minecraft.world.entity.animal.goat.Goat;
 import net.minecraft.world.entity.animal.horse.*;
+import net.minecraft.world.entity.animal.sniffer.Sniffer;
 import net.minecraft.world.entity.boss.wither.WitherBoss;
 import net.minecraft.world.entity.decoration.ArmorStand;
 import net.minecraft.world.entity.monster.*;
+import net.minecraft.world.entity.monster.breeze.Breeze;
 import net.minecraft.world.entity.monster.hoglin.Hoglin;
 import net.minecraft.world.entity.monster.piglin.Piglin;
 import net.minecraft.world.entity.monster.piglin.PiglinBrute;
 import net.minecraft.world.entity.monster.warden.Warden;
 import net.minecraft.world.entity.npc.WanderingTrader;
 import net.minecraft.world.level.block.Blocks;
-import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
@@ -33,11 +35,16 @@ public class ModEntities
 {
     public static final DeferredRegister<EntityType<?>> ENTITIES = DeferredRegister.create(BuiltInRegistries.ENTITY_TYPE, ShinyMod.MODID);
 
+    public static final DeferredHolder<EntityType<?>, EntityType<Allay>> ALLAY = register("shiny_allay", EntityType.Builder.of(Allay::new, MobCategory.CREATURE).sized(0.35F, 0.6F).clientTrackingRange(8).updateInterval(2));
+    public static final DeferredHolder<EntityType<?>, EntityType<Armadillo>> ARMADILLO = register("shiny_armadillo", EntityType.Builder.of(Armadillo::new, MobCategory.CREATURE).sized(0.7F, 0.65F).eyeHeight(0.26F).clientTrackingRange(10));
     public static final DeferredHolder<EntityType<?>, EntityType<ArmorStand>> ARMOR_STAND = register("shiny_armor_stand", EntityType.Builder.<ArmorStand>of(ArmorStand::new, MobCategory.MISC).sized(0.5F, 1.975F).clientTrackingRange(10));
     public static final DeferredHolder<EntityType<?>, EntityType<ShinyAxolotl>> AXOLOTL = register("shiny_axolotl", EntityType.Builder.of(ShinyAxolotl::new, MobCategory.AXOLOTLS).sized(0.75F, 0.42F).clientTrackingRange(10));
     public static final DeferredHolder<EntityType<?>, EntityType<Bat>> BAT = register("shiny_bat", EntityType.Builder.of(Bat::new, MobCategory.AMBIENT).sized(0.5F, 0.9F).clientTrackingRange(5));
     public static final DeferredHolder<EntityType<?>, EntityType<Bee>> BEE = register("shiny_bee", EntityType.Builder.of(Bee::new, MobCategory.CREATURE).sized(0.7F, 0.6F).clientTrackingRange(8));
     public static final DeferredHolder<EntityType<?>, EntityType<Blaze>> BLAZE = register("shiny_blaze", EntityType.Builder.of(Blaze::new, MobCategory.MONSTER).fireImmune().sized(0.6F, 1.8F).clientTrackingRange(8));
+    public static final DeferredHolder<EntityType<?>, EntityType<Bogged>> BOGGED = register("shiny_bogged", EntityType.Builder.of(Bogged::new,MobCategory.MONSTER).sized(0.6F, 1.99F).eyeHeight(1.74F).ridingOffset(-0.7F).clientTrackingRange(8));
+    public static final DeferredHolder<EntityType<?>, EntityType<Breeze>> BREEZE = register("shiny_breeze", EntityType.Builder.of(Breeze::new, MobCategory.MONSTER).sized(0.6F, 1.77F).eyeHeight(1.3452F).clientTrackingRange(10));
+    public static final DeferredHolder<EntityType<?>, EntityType<Camel>> CAMEL = register("shiny_camel", EntityType.Builder.of(Camel::new, MobCategory.CREATURE).sized(1.7F, 2.375F).clientTrackingRange(10));
     public static final DeferredHolder<EntityType<?>, EntityType<Cat>> CAT = register("shiny_cat", EntityType.Builder.of(Cat::new, MobCategory.CREATURE).sized(0.6F, 0.7F).clientTrackingRange(8));
     public static final DeferredHolder<EntityType<?>, EntityType<CaveSpider>> CAVE_SPIDER = register("shiny_cave_spider", EntityType.Builder.of(CaveSpider::new, MobCategory.MONSTER).sized(0.7F, 0.5F).clientTrackingRange(8));
     public static final DeferredHolder<EntityType<?>, EntityType<Chicken>> CHICKEN = register("shiny_chicken", EntityType.Builder.of(Chicken::new, MobCategory.CREATURE).sized(0.4F, 0.7F).clientTrackingRange(10));
@@ -52,6 +59,7 @@ public class ModEntities
     public static final DeferredHolder<EntityType<?>, EntityType<Endermite>> ENDERMITE = register("shiny_endermite", EntityType.Builder.of(Endermite::new, MobCategory.MONSTER).sized(0.4F, 0.3F).clientTrackingRange(8));
     public static final DeferredHolder<EntityType<?>, EntityType<Evoker>> EVOKER = register("shiny_evoker", EntityType.Builder.of(Evoker::new, MobCategory.MONSTER).sized(0.6F, 1.95F).clientTrackingRange(8));
     public static final DeferredHolder<EntityType<?>, EntityType<Fox>> FOX = register("shiny_fox", EntityType.Builder.of(Fox::new, MobCategory.CREATURE).sized(0.6F, 0.7F).clientTrackingRange(8).immuneTo(Blocks.SWEET_BERRY_BUSH));
+    public static final DeferredHolder<EntityType<?>, EntityType<Frog>> FROG = register("shiny_frog", EntityType.Builder.of(Frog::new, MobCategory.CREATURE).sized(0.5F, 0.5F).clientTrackingRange(10));
     public static final DeferredHolder<EntityType<?>, EntityType<Ghast>> GHAST = register("shiny_ghast", EntityType.Builder.of(Ghast::new, MobCategory.MONSTER).fireImmune().sized(4.0F, 4.0F).clientTrackingRange(10));
     public static final DeferredHolder<EntityType<?>, EntityType<GlowSquid>> GLOW_SQUID = register("shiny_glow_squid", EntityType.Builder.of(GlowSquid::new, MobCategory.UNDERGROUND_WATER_CREATURE).sized(0.8F, 0.8F).clientTrackingRange(10));
     public static final DeferredHolder<EntityType<?>, EntityType<Goat>> GOAT = register("shiny_goat", EntityType.Builder.of(Goat::new, MobCategory.CREATURE).sized(0.9F, 1.3F).clientTrackingRange(10));
@@ -84,11 +92,13 @@ public class ModEntities
     public static final DeferredHolder<EntityType<?>, EntityType<ShinySkeleton>> SKELETON = register("shiny_skeleton", EntityType.Builder.of(ShinySkeleton::new, MobCategory.MONSTER).sized(0.6F, 1.99F).clientTrackingRange(8));
     public static final DeferredHolder<EntityType<?>, EntityType<SkeletonHorse>> SKELETON_HORSE = register("shiny_skeleton_horse", EntityType.Builder.of(SkeletonHorse::new, MobCategory.CREATURE).sized(1.3964844F, 1.6F).clientTrackingRange(10));
     public static final DeferredHolder<EntityType<?>, EntityType<Slime>> SLIME = register("shiny_slime", EntityType.Builder.of(Slime::new, MobCategory.MONSTER).sized(2.04F, 2.04F).clientTrackingRange(10));
+    public static final DeferredHolder<EntityType<?>, EntityType<Sniffer>> SNIFFER = register("shiny_sniffer", EntityType.Builder.of(Sniffer::new, MobCategory.CREATURE).sized(1.9F, 1.75F).eyeHeight(1.05F).passengerAttachments(2.09375F).nameTagOffset(2.05F).clientTrackingRange(10));
     public static final DeferredHolder<EntityType<?>, EntityType<SnowGolem>> SNOW_GOLEM = register("shiny_snow_golem", EntityType.Builder.of(SnowGolem::new, MobCategory.MISC).immuneTo(Blocks.POWDER_SNOW).sized(0.7F, 1.9F).clientTrackingRange(8));
     public static final DeferredHolder<EntityType<?>, EntityType<Spider>> SPIDER = register("shiny_spider", EntityType.Builder.of(Spider::new, MobCategory.MONSTER).sized(1.4F, 0.9F).clientTrackingRange(8));
     public static final DeferredHolder<EntityType<?>, EntityType<Squid>> SQUID = register("shiny_squid", EntityType.Builder.of(Squid::new, MobCategory.WATER_CREATURE).sized(0.8F, 0.8F).clientTrackingRange(8));
     public static final DeferredHolder<EntityType<?>, EntityType<Stray>> STRAY = register("shiny_stray", EntityType.Builder.of(Stray::new, MobCategory.MONSTER).sized(0.6F, 1.99F).immuneTo(Blocks.POWDER_SNOW).clientTrackingRange(8));
     public static final DeferredHolder<EntityType<?>, EntityType<Strider>> STRIDER = register("shiny_strider", EntityType.Builder.of(Strider::new, MobCategory.CREATURE).fireImmune().sized(0.9F, 1.7F).clientTrackingRange(10));
+    public static final DeferredHolder<EntityType<?>, EntityType<Tadpole>> TADPOLE = register("shiny_tadpole", EntityType.Builder.<Tadpole>of(Tadpole::new, MobCategory.CREATURE).sized(Tadpole.HITBOX_WIDTH, Tadpole.HITBOX_HEIGHT).clientTrackingRange(10));
     public static final DeferredHolder<EntityType<?>, EntityType<TraderLlama>> TRADER_LLAMA = register("shiny_trader_llama", EntityType.Builder.of(TraderLlama::new, MobCategory.CREATURE).sized(0.9F, 1.87F).clientTrackingRange(10));
     public static final DeferredHolder<EntityType<?>, EntityType<ShinyTropicalFish>> TROPICAL_FISH = register("shiny_tropical_fish", EntityType.Builder.of(ShinyTropicalFish::new, MobCategory.WATER_AMBIENT).sized(0.5F, 0.4F).clientTrackingRange(4));
     public static final DeferredHolder<EntityType<?>, EntityType<Turtle>> TURTLE = register("shiny_turtle", EntityType.Builder.of(Turtle::new, MobCategory.CREATURE).sized(1.2F, 0.4F).clientTrackingRange(10));
@@ -106,10 +116,8 @@ public class ModEntities
     public static final DeferredHolder<EntityType<?>, EntityType<ShinyZombieVillager>> ZOMBIE_VILLAGER = register("shiny_zombie_villager", EntityType.Builder.of(ShinyZombieVillager::new, MobCategory.MONSTER).sized(0.6F, 1.95F).clientTrackingRange(8));
     public static final DeferredHolder<EntityType<?>, EntityType<ZombifiedPiglin>> ZOMBIFIED_PIGLIN = register("shiny_zombified_piglin", EntityType.Builder.of(ZombifiedPiglin::new, MobCategory.MONSTER).fireImmune().sized(0.6F, 1.95F).clientTrackingRange(8));
     public static final DeferredHolder<EntityType<?>, EntityType<Warden>> WARDEN = register("shiny_warden", EntityType.Builder.<Warden>of(Warden::new, MobCategory.MONSTER).sized(0.9F, 2.9F).clientTrackingRange(16).fireImmune());
-    public static final DeferredHolder<EntityType<?>, EntityType<Tadpole>> TADPOLE = register("shiny_tadpole", EntityType.Builder.<Tadpole>of(Tadpole::new, MobCategory.CREATURE).sized(Tadpole.HITBOX_WIDTH, Tadpole.HITBOX_HEIGHT).clientTrackingRange(10));
-    public static final DeferredHolder<EntityType<?>, EntityType<Frog>> FROG = register("shiny_frog", EntityType.Builder.of(Frog::new, MobCategory.CREATURE).sized(0.5F, 0.5F).clientTrackingRange(10));
-    public static final DeferredHolder<EntityType<?>, EntityType<Allay>> ALLAY = register("shiny_allay", EntityType.Builder.of(Allay::new, MobCategory.CREATURE).sized(0.35F, 0.6F).clientTrackingRange(8).updateInterval(2));
-    public static final DeferredHolder<EntityType<?>, EntityType<Camel>> CAMEL = register("shiny_camel", EntityType.Builder.of(Camel::new, MobCategory.CREATURE).sized(1.7F, 2.375F).clientTrackingRange(10));
+
+    // armadillo, breeze, bogged
 
     public static <E extends Entity> DeferredHolder<EntityType<?>, EntityType<E>> register(String name, EntityType.Builder<E> builder) {
         return ENTITIES.register(name, () -> builder.build(ShinyMod.MODID + ":" + name));

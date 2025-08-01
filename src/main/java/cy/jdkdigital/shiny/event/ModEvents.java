@@ -6,15 +6,18 @@ import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ambient.Bat;
 import net.minecraft.world.entity.animal.*;
 import net.minecraft.world.entity.animal.allay.Allay;
+import net.minecraft.world.entity.animal.armadillo.Armadillo;
 import net.minecraft.world.entity.animal.axolotl.Axolotl;
 import net.minecraft.world.entity.animal.camel.Camel;
 import net.minecraft.world.entity.animal.frog.Frog;
 import net.minecraft.world.entity.animal.frog.Tadpole;
 import net.minecraft.world.entity.animal.goat.Goat;
 import net.minecraft.world.entity.animal.horse.*;
+import net.minecraft.world.entity.animal.sniffer.Sniffer;
 import net.minecraft.world.entity.boss.wither.WitherBoss;
 import net.minecraft.world.entity.decoration.ArmorStand;
 import net.minecraft.world.entity.monster.*;
+import net.minecraft.world.entity.monster.breeze.Breeze;
 import net.minecraft.world.entity.monster.hoglin.Hoglin;
 import net.minecraft.world.entity.monster.piglin.Piglin;
 import net.minecraft.world.entity.monster.piglin.PiglinBrute;
@@ -23,6 +26,7 @@ import net.minecraft.world.entity.npc.Villager;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
+import net.neoforged.neoforge.registries.datamaps.RegisterDataMapTypesEvent;
 
 @EventBusSubscriber(modid = ShinyMod.MODID, bus = EventBusSubscriber.Bus.MOD)
 public class ModEvents
@@ -106,5 +110,14 @@ public class ModEvents
         event.put(ModEntities.FROG.get(), Frog.createAttributes().build());
         event.put(ModEntities.ALLAY.get(), Allay.createAttributes().build());
         event.put(ModEntities.CAMEL.get(), Camel.createAttributes().build());
+        event.put(ModEntities.SNIFFER.get(), Sniffer.createAttributes().build());
+        event.put(ModEntities.BREEZE.get(), Breeze.createAttributes().build());
+        event.put(ModEntities.BOGGED.get(), Bogged.createAttributes().build());
+        event.put(ModEntities.ARMADILLO.get(), Armadillo.createAttributes().build());
+    }
+
+    @SubscribeEvent
+    private static void registerDataMap(final RegisterDataMapTypesEvent event) {
+        event.register(ShinyMod.SPAWN_CHANCE_MAP);
     }
 }
