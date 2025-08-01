@@ -1,3 +1,10 @@
+1.21.0-1.2.2
+
+- Added more sanity checks to shiny spawns
+- Added ja_jp translation (Abbage230)
+- Added pt_br translation (PrincessStelllar)
+
+
 1.21.0-1.2.1
 
 - Fix compat with Jonn's Trophies
