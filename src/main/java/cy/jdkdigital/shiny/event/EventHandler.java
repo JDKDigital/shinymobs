@@ -29,17 +29,21 @@ public class EventHandler
     public static void onEntitySpawn(EntityJoinLevelEvent event) {
         if (!event.loadedFromDisk() && event.getLevel() instanceof ServerLevel serverLevel && event.getEntity() instanceof LivingEntity entity && entity.getEncodeId() != null && !entity.getEncodeId().contains("shiny:")) {
             String shinyEntityId = entity.getEncodeId().replace("minecraft:", "shiny:shiny_");
-            if (BuiltInRegistries.ENTITY_TYPE.containsKey(ResourceLocation.parse(shinyEntityId)) && ShinyModConfig.GENERAL.shinySpawnChance.get() > serverLevel.getRandom().nextDouble()) {
-                EntityType<? extends Entity> shiny = BuiltInRegistries.ENTITY_TYPE.get(ResourceLocation.parse(shinyEntityId));
-                var executor = LogicalSidedProvider.WORKQUEUE.get(event.getLevel().isClientSide ? LogicalSide.CLIENT : LogicalSide.SERVER);
-                executor.tell(new TickTask(0, () -> {
-                    Entity newEntity = shiny.create(serverLevel, null, entity.blockPosition(), MobSpawnType.CONVERSION, false, false);
-                    if (newEntity != null) {
-                        entity.discard();
-                        event.setCanceled(true);
-                        event.getLevel().addFreshEntity(newEntity);
-                    }
-                }));
+            if (shinyEntityId.contains("shiny:")) {
+                var chanceData = entity.getType().builtInRegistryHolder().getData(ShinyMod.SPAWN_CHANCE_MAP);
+                float chance = chanceData != null ? chanceData.spawnChance() : ShinyModConfig.GENERAL.shinySpawnChance.get().floatValue();
+                if (BuiltInRegistries.ENTITY_TYPE.containsKey(ResourceLocation.parse(shinyEntityId)) && chance > serverLevel.getRandom().nextFloat()) {
+                    EntityType<? extends Entity> shiny = BuiltInRegistries.ENTITY_TYPE.get(ResourceLocation.parse(shinyEntityId));
+                    var executor = LogicalSidedProvider.WORKQUEUE.get(event.getLevel().isClientSide ? LogicalSide.CLIENT : LogicalSide.SERVER);
+                    executor.tell(new TickTask(0, () -> {
+                        Entity newEntity = shiny.create(serverLevel, null, entity.blockPosition(), MobSpawnType.CONVERSION, false, false);
+                        if (newEntity != null) {
+                            entity.discard();
+                            event.setCanceled(true);
+                            event.getLevel().addFreshEntity(newEntity);
+                        }
+                    }));
+                }
             }
         }
     }
