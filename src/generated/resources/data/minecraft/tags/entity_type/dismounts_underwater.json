@@ -1,0 +1,16 @@
+{
+  "values": [
+    "shiny:shiny_camel",
+    "shiny:shiny_chicken",
+    "shiny:shiny_donkey",
+    "shiny:shiny_horse",
+    "shiny:shiny_llama",
+    "shiny:shiny_mule",
+    "shiny:shiny_pig",
+    "shiny:shiny_ravager",
+    "shiny:shiny_spider",
+    "shiny:shiny_strider",
+    "shiny:shiny_trader_llama",
+    "shiny:shiny_zombie_horse"
+  ]
+}

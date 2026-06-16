@@ -1,3 +1,19 @@
+1.21.0-1.2.5
+
+- Limit shiny replacements to certain spawn types and added calls to conversion events
+
+
+1.21.0-1.2.4
+
+- Fixed slime hitbox
+- Added proper entity type tags
+
+
+1.21.0-1.2.3
+
+- Shiny entities will now inherit data from the replaced mob. This fixes shiny withers insta-spawning.
+
+
 1.21.0-1.2.2
 
 - Added more sanity checks to shiny spawns

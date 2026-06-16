@@ -22,5 +22,6 @@ public class ShinyDataProvider
         ExistingFileHelper helper = event.getExistingFileHelper();
 
         gen.addProvider(event.includeServer(), new DataMapProvider(output, provider));
+        gen.addProvider(event.includeServer(), new EntityTypeTagProvider(output, provider));
     }
 }

@@ -1,0 +1,13 @@
+{
+  "values": [
+    "shiny:shiny_breeze",
+    "shiny:shiny_skeleton",
+    "shiny:shiny_bogged",
+    "shiny:shiny_stray",
+    "shiny:shiny_zombie",
+    "shiny:shiny_husk",
+    "shiny:shiny_spider",
+    "shiny:shiny_cave_spider",
+    "shiny:shiny_slime"
+  ]
+}
