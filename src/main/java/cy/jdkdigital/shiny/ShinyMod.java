@@ -3,6 +3,7 @@ package cy.jdkdigital.shiny;
 import cy.jdkdigital.shiny.common.datamap.SpawnChanceMap;
 import cy.jdkdigital.shiny.init.ModEntities;
 import cy.jdkdigital.shiny.init.ModItems;
+import cy.jdkdigital.shiny.init.ShinyAttachments;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
@@ -25,6 +26,7 @@ public class ShinyMod
     public ShinyMod(IEventBus modEventBus, ModContainer modContainer) {
         ModEntities.ENTITIES.register(modEventBus);
         ModItems.ITEMS.register(modEventBus);
+        ShinyAttachments.ATTACHMENT_TYPES.register(modEventBus);
 
         modContainer.registerConfig(ModConfig.Type.SERVER, ShinyModConfig.SERVER_CONFIG);
     }

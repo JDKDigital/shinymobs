@@ -5,6 +5,7 @@ import cy.jdkdigital.shiny.client.renderer.entity.*;
 import cy.jdkdigital.shiny.init.ModEntities;
 import net.minecraft.client.model.SquidModel;
 import net.minecraft.client.model.geom.ModelLayers;
+import net.minecraft.world.entity.EntityType;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -15,6 +16,7 @@ public class ClientSetup
 {
     @SubscribeEvent
     public static void registerEntityRendering(EntityRenderersEvent.RegisterRenderers event) {
+        event.registerEntityRenderer(EntityType.ENDER_DRAGON, ShinyEnderDragonRenderer::new);
         event.registerEntityRenderer(ModEntities.ARMADILLO.get(), ShinyArmadilloRenderer::new);
         event.registerEntityRenderer(ModEntities.ARMOR_STAND.get(), ShinyArmorStandRenderer::new);
         event.registerEntityRenderer(ModEntities.AXOLOTL.get(), ShinyAxolotlRenderer::new);

@@ -1,3 +1,12 @@
+1.21.1-1.3.0
+
+- Added shiny ender dragon
+- Shiny animals now pass it on when bred
+- Fixed armor stands not being able to spawn shiny
+- Matched all shiny entity hitboxes and eye heights to their vanilla counterparts
+
+
+
 1.21.0-1.2.5
 
 - Limit shiny replacements to certain spawn types and added calls to conversion events
